@@ -7,7 +7,7 @@
     line-height: 140%;
 }
 
-
+/* header */
 header {
     height: 70px;
     background-color: #FFFFFF;
@@ -41,7 +41,7 @@ header .login {
     align-content: center;
 }
 
-
+/* banner */
 .banner {
     height: 540px;
     background-color: #CFE5FF;
@@ -82,7 +82,7 @@ header .login {
     width: 746px;
 }
 
-
+/* main */
 main {
     background-color: #FFFFFF;
 }
@@ -126,7 +126,7 @@ article img {
     text-align: right;
 }
 
-
+/* footer */
 footer {
     height: 160px;
     padding-top: 32px;
