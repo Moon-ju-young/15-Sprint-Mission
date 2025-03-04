@@ -15,7 +15,7 @@ a {
     cursor: pointer;
 }
 
-h1 {
+.heading {
     display: block;
     margin: 0;
     color: #374151;
@@ -116,7 +116,7 @@ article > div {
     align-items: center;
 }
 
-.article-top {
+.article-top-text {
     color: #3692FF;
     margin-bottom: 12px;
     font-size: 18px;
@@ -135,11 +135,11 @@ article img {
     height: 444px;
 }
 
-article .right {
+.article-right {
     flex-direction: row-reverse;
 }
 
-article .right .article-text {
+.article-right .article-text {
     text-align: right;
 }
 
