@@ -23,19 +23,19 @@ form {
     width: 100%;
 }
 
-form > * {
+form * {
     display: block;
     border: none;
 }
 
-label {
+form label {
     margin-bottom: 16px;
     font-weight: 700;
     font-size: 18px;
     line-height: 26px;
 }
 
-input {
+form input {
     width: 100%;
     padding: 16px 24px 14px;
     margin-bottom: 24px;
@@ -46,7 +46,20 @@ input {
     line-height: 26px;
 }
 
-button {
+form .password-container {
+    position: relative;
+    justify-content: center;
+}
+
+form .password-container .eye {
+    width: 24px;
+    position: absolute;
+    top: 16px;
+    bottom: 16px;
+    right: 24px;
+}
+
+form button {
     width: 100%;
     padding: 12px 0;
     border-radius: 9999px;
