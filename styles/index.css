@@ -1,21 +1,4 @@
-* {
-    box-sizing: border-box;
-}
-
-html {
-    font-family: Pretendard;
-}
-
-body {
-    margin: 0;
-}
-
-a {
-    text-decoration: none;
-    cursor: pointer;
-}
-
-h1 {
+.heading {
     display: block;
     margin: 0;
     color: #374151;
@@ -24,7 +7,7 @@ h1 {
     line-height: 140%;
 }
 
-
+/* header */
 header {
     height: 70px;
     background-color: #FFFFFF;
@@ -32,6 +15,8 @@ header {
     padding: 0 200px;
     justify-content: center;
     align-content: center;
+    position: sticky;
+    top: 0;
 }
 
 header div {
@@ -58,7 +43,7 @@ header .login {
     align-content: center;
 }
 
-
+/* banner */
 .banner {
     height: 540px;
     background-color: #CFE5FF;
@@ -99,7 +84,7 @@ header .login {
     width: 746px;
 }
 
-
+/* main */
 main {
     background-color: #FFFFFF;
 }
@@ -116,7 +101,7 @@ article > div {
     align-items: center;
 }
 
-.article-top {
+.article-top-text {
     color: #3692FF;
     margin-bottom: 12px;
     font-size: 18px;
@@ -128,22 +113,22 @@ article > div {
     margin-top: 24px;
     font-size: 24px;
     font-weight: 500;
-    line-height: 133.33%;
+    line-height: 32px;
 }
 
 article img {
     height: 444px;
 }
 
-article .right {
+.article-right {
     flex-direction: row-reverse;
 }
 
-article .right .article-text {
+.article-right .article-text {
     text-align: right;
 }
 
-
+/* footer */
 footer {
     height: 160px;
     padding-top: 32px;
@@ -172,6 +157,7 @@ footer > div {
 
 .footer-link a {
     color: #E5E7EB;
+    display: inline-block;
 }
 
 .footer-sns {
@@ -192,4 +178,5 @@ footer > div {
 
 .footer-sns img {
     height: 20px;
+    vertical-align: top;
 }

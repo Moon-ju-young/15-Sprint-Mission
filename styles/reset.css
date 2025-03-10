@@ -1,0 +1,17 @@
+* {
+    box-sizing: border-box;
+    font-family: Pretendard;
+}
+
+html {
+    font-family: Pretendard;
+}
+
+body {
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+}

@@ -1,0 +1,109 @@
+* {
+    color: #1F2937;
+}
+
+main {
+    max-width: 640px;
+    margin: 240px auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+a.logo {
+    width: 62%;
+    margin-bottom: 40px;
+}
+
+img.logo {
+    width: 100%;
+}
+
+form {
+    width: 100%;
+}
+
+form * {
+    display: block;
+    border: none;
+}
+
+form label {
+    margin-bottom: 16px;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 26px;
+}
+
+form input {
+    width: 100%;
+    padding: 16px 24px 14px;
+    margin-bottom: 24px;
+    border-radius: 12px;
+    background-color: #F3F4F6;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 26px;
+}
+
+form .password-container {
+    position: relative;
+    justify-content: center;
+}
+
+form .password-container .eye {
+    width: 24px;
+    position: absolute;
+    top: 16px;
+    bottom: 16px;
+    right: 24px;
+}
+
+form button {
+    width: 100%;
+    padding: 12px 0;
+    border-radius: 9999px;
+    background-color: #3692FF;
+    color: #F3F4F6;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 32px;
+}
+
+.simple-login {
+    width: 100%;
+    padding: 16px 23px;
+    margin: 24px 0;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #E6F2FF;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.simple-login > div {
+    display: flex;
+    gap: 16px;
+}
+
+.simple-login a {
+    height: 42px;
+    display: block;
+}
+
+.simple-login img {
+    height: 42px;
+}
+
+.bottom-text {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 24px;
+}
+
+.bottom-text a {
+    color: #3692FF;
+    text-decoration: underline;
+}
