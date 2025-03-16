@@ -90,11 +90,19 @@ form button {
 
 .simple-login a {
     height: 42px;
+    width: 42px;
+    padding-top: 10px;
+    border-radius: 9999px;
+    text-align: center;
     display: block;
 }
 
-.simple-login img {
-    height: 42px;
+.simple-login .google {
+    background-color: #FFFFFF;
+}
+
+.simple-login .kakaotalk {
+    background-color: #F5E14B;
 }
 
 .bottom-text {
