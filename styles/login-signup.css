@@ -110,13 +110,13 @@ form > button {
     background-color: #F5E14B;
 }
 
-.bottom-text {
+.guide-text {
     font-weight: 500;
     font-size: 14px;
     line-height: 24px;
 }
 
-.bottom-text a {
+.guide-text a {
     color: #3692FF;
     text-decoration: underline;
 }
