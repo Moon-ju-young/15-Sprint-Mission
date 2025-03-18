@@ -1,5 +1,5 @@
 * {
-    color: #1F2937;
+    color: var(--gray800);
 }
 
 main {
@@ -40,7 +40,7 @@ form input {
     padding: 16px 24px 14px;
     margin-bottom: 24px;
     border-radius: 12px;
-    background-color: #F3F4F6;
+    background-color: var(--gray100);
     font-weight: 400;
     font-size: 16px;
     line-height: 26px;
@@ -68,8 +68,8 @@ form .complete-btn {
     width: 100%;
     padding: 12px 0;
     border-radius: 9999px;
-    background-color: #3692FF;
-    color: #F3F4F6;
+    background-color: var(--blue);
+    color: var(--gray100);
     font-weight: 600;
     font-size: 20px;
     line-height: 32px;
@@ -103,7 +103,7 @@ form .complete-btn {
 }
 
 .simple-login .google {
-    background-color: #FFFFFF;
+    background-color: white;
 }
 
 .simple-login .kakaotalk {
@@ -117,6 +117,6 @@ form .complete-btn {
 }
 
 .guide-text a {
-    color: #3692FF;
+    color: var(--blue);
     text-decoration: underline;
 }

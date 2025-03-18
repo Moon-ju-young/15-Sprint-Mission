@@ -1,7 +1,7 @@
 .heading {
     display: block;
     margin: 0;
-    color: #374151;
+    color: var(--gray700);
     font-size: 40px;
     font-weight: 700;
     line-height: 140%;
@@ -10,7 +10,7 @@
 /* header */
 header {
     height: 70px;
-    background-color: #FFFFFF;
+    background-color: white;
     border-bottom: 1px solid #dfdfdf;
     padding: 0 200px;
     justify-content: center;
@@ -35,8 +35,8 @@ header .login {
     width: 128px;
     height: 48px;
     border-radius: 8px;
-    background-color: #3692FF;
-    color: #F3F4F6;
+    background-color: var(--blue);
+    color: var(--gray100);
     font-size: 16px;
     font-weight: 600;
     text-align: center;
@@ -71,8 +71,8 @@ header .login {
     height: 56px;
     margin-top: 32px;
     border-radius: 40px;
-    background-color: #3692FF;
-    color: #F9FAFB;
+    background-color: var(--blue);
+    color: var(--gray50);
     font-size: 20px;
     font-weight: 600;
     text-align: center;
@@ -86,7 +86,7 @@ header .login {
 
 /* main */
 main {
-    background-color: #FFFFFF;
+    background-color: white;
 }
 
 article {
@@ -102,14 +102,14 @@ article > div {
 }
 
 .article-top-text {
-    color: #3692FF;
+    color: var(--blue);
     margin-bottom: 12px;
     font-size: 18px;
     font-weight: 700;
 }
 
 .article-explain {
-    color: #374151;
+    color: var(--gray700);
     margin-top: 24px;
     font-size: 24px;
     font-weight: 500;
@@ -132,7 +132,7 @@ article img {
 footer {
     height: 160px;
     padding-top: 32px;
-    background-color: #111827;
+    background-color: var(--gray900);
     font-size: 16px;
     font-weight: 400;
     text-align: center;
@@ -146,7 +146,7 @@ footer > div {
 }
 
 .footer-copyright {
-    color: #9CA3AF;
+    color: var(--gray400);
 }
 
 .footer-link {
@@ -156,7 +156,7 @@ footer > div {
 }
 
 .footer-link a {
-    color: #E5E7EB;
+    color: var(--gray200);
     display: inline-block;
 }
 
