@@ -163,7 +163,7 @@ footer > div {
 .footer-sns {
     margin: 0;
     padding: 0;
-    gap: 12px;
+    font-size: 0;
 }
 
 .footer-sns > li {
