@@ -51,15 +51,20 @@ form .password-container {
     justify-content: center;
 }
 
-form .password-container .eye {
+form .password-container .eye-btn {
     width: 24px;
+    padding: 0;
     position: absolute;
     top: 16px;
     bottom: 16px;
     right: 24px;
 }
 
-form button {
+form .password-container .eye-btn img {
+    width: 100%;
+}
+
+form > button {
     width: 100%;
     padding: 12px 0;
     border-radius: 9999px;
