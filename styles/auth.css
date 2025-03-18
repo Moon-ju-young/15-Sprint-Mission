@@ -64,7 +64,7 @@ form .password-container .eye-btn img {
     width: 100%;
 }
 
-form > button {
+form .complete-btn {
     width: 100%;
     padding: 12px 0;
     border-radius: 9999px;
