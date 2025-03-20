@@ -120,3 +120,11 @@ form .complete-btn {
     color: var(--blue);
     text-decoration: underline;
 }
+
+/* Mobile */
+@media (max-width: 767px) {
+    main {
+        max-width: 432px;
+        padding: 0 16px;
+    }
+}
