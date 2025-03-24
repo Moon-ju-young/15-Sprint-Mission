@@ -46,6 +46,14 @@ form input {
     line-height: 26px;
 }
 
+form input.wrong {
+    border: solid 1px var(--red);
+}
+
+form input.correct {
+    border: solid 1px var(--blue);
+}
+
 form .password-container {
     position: relative;
     justify-content: center;
