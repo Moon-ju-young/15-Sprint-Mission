@@ -91,6 +91,10 @@ form .complete-btn {
     line-height: 32px;
 }
 
+form .complete-btn:disabled {
+    background-color: var(--gray400);
+}
+
 .simple-login {
     width: 100%;
     padding: 16px 23px;

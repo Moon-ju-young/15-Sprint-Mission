@@ -1,3 +1,7 @@
+const form = document.querySelector("form");
+const inputs = document.querySelectorAll("form input");
+const button = document.querySelector("button.complete-btn");
+
 const email = document.querySelector("input#email");
 const nickname = document.querySelector("input#nickname");
 const password = document.querySelector("input#password");
@@ -62,3 +66,12 @@ passwordCheck?.addEventListener("focusout", (e) => {
         correct(e.target);
     }
 });
+
+form.addEventListener("focusout", () => {
+    for (let input of inputs) {
+        if (!input.classList.contains("correct")){
+            return;
+        }
+    }
+    button.removeAttribute("disabled");
+})
