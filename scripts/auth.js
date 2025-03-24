@@ -31,6 +31,14 @@ function correct(node) {
     }
 }
 
+function passwordMatch() {
+    if (password.value !== passwordCheck.value) {
+        wrong(passwordCheck, "비밀번호가 일치하지 않습니다.");
+    } else {
+        correct(passwordCheck);
+    }
+}
+
 email.addEventListener("focusout", (e) => {
     if (!e.target.value) {
         wrong(e.target, "이메일을 입력해주세요.");
@@ -59,13 +67,18 @@ password.addEventListener("focusout", (e) => {
     }
 });
 
-passwordCheck?.addEventListener("focusout", (e) => {
-    if (password.value !== passwordCheck.value) {
-        wrong(e.target, "비밀번호가 일치하지 않습니다.");
-    } else {
-        correct(e.target);
-    }
-});
+if (passwordCheck) {
+    password.addEventListener("change", () => {
+        if (passwordCheck.value) {
+            passwordMatch();
+        }
+    });
+    passwordCheck.addEventListener("input", () => {
+        if (password.value) {
+            passwordMatch();
+        }
+    });
+}
 
 form.addEventListener("focusout", () => {
     for (let input of inputs) {
@@ -74,4 +87,4 @@ form.addEventListener("focusout", () => {
         }
     }
     button.removeAttribute("disabled");
-})
+});
