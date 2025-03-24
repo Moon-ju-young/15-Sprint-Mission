@@ -1,5 +1,5 @@
 * {
-    color: #1F2937;
+    color: var(--gray800);
 }
 
 main {
@@ -40,7 +40,7 @@ form input {
     padding: 16px 24px 14px;
     margin-bottom: 24px;
     border-radius: 12px;
-    background-color: #F3F4F6;
+    background-color: var(--gray100);
     font-weight: 400;
     font-size: 16px;
     line-height: 26px;
@@ -51,20 +51,25 @@ form .password-container {
     justify-content: center;
 }
 
-form .password-container .eye {
+form .password-container .eye-btn {
     width: 24px;
+    padding: 0;
     position: absolute;
     top: 16px;
     bottom: 16px;
     right: 24px;
 }
 
-form button {
+form .password-container .eye-btn img {
+    width: 100%;
+}
+
+form .complete-btn {
     width: 100%;
     padding: 12px 0;
     border-radius: 9999px;
-    background-color: #3692FF;
-    color: #F3F4F6;
+    background-color: var(--blue);
+    color: var(--gray100);
     font-weight: 600;
     font-size: 20px;
     line-height: 32px;
@@ -90,20 +95,36 @@ form button {
 
 .simple-login a {
     height: 42px;
+    width: 42px;
+    padding-top: 10px;
+    border-radius: 9999px;
+    text-align: center;
     display: block;
 }
 
-.simple-login img {
-    height: 42px;
+.simple-login .google {
+    background-color: white;
 }
 
-.bottom-text {
+.simple-login .kakaotalk {
+    background-color: #F5E14B;
+}
+
+.guide-text {
     font-weight: 500;
     font-size: 14px;
     line-height: 24px;
 }
 
-.bottom-text a {
-    color: #3692FF;
+.guide-text a {
+    color: var(--blue);
     text-decoration: underline;
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+    main {
+        max-width: 432px;
+        padding: 0 16px;
+    }
 }

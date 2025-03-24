@@ -1,7 +1,7 @@
 .heading {
     display: block;
     margin: 0;
-    color: #374151;
+    color: var(--gray700);
     font-size: 40px;
     font-weight: 700;
     line-height: 140%;
@@ -10,7 +10,7 @@
 /* header */
 header {
     height: 70px;
-    background-color: #FFFFFF;
+    background-color: white;
     border-bottom: 1px solid #dfdfdf;
     padding: 0 200px;
     justify-content: center;
@@ -27,18 +27,24 @@ header div {
     align-items: center;
 }
 
-header img {
+header .logo {
     height: 51px;
+    font-size: 0;
+}
+
+header .logo img {
+    height: 100%;
 }
 
 header .login {
     width: 128px;
     height: 48px;
     border-radius: 8px;
-    background-color: #3692FF;
-    color: #F3F4F6;
+    background-color: var(--blue);
+    color: var(--gray100);
     font-size: 16px;
     font-weight: 600;
+    line-height: 26px;
     text-align: center;
     align-content: center;
 }
@@ -55,7 +61,6 @@ header .login {
 }
 
 .banner > div {
-    width: 1110px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -71,8 +76,8 @@ header .login {
     height: 56px;
     margin-top: 32px;
     border-radius: 40px;
-    background-color: #3692FF;
-    color: #F9FAFB;
+    background-color: var(--blue);
+    color: var(--gray50);
     font-size: 20px;
     font-weight: 600;
     text-align: center;
@@ -85,12 +90,8 @@ header .login {
 }
 
 /* main */
-main {
-    background-color: #FFFFFF;
-}
-
 article {
-    height: 720px;
+    padding: 138px 0;
     align-content: center;
 }
 
@@ -102,14 +103,15 @@ article > div {
 }
 
 .article-top-text {
-    color: #3692FF;
+    color: var(--blue);
     margin-bottom: 12px;
     font-size: 18px;
     font-weight: 700;
+    line-height: 26px;
 }
 
 .article-explain {
-    color: #374151;
+    color: var(--gray700);
     margin-top: 24px;
     font-size: 24px;
     font-weight: 500;
@@ -117,7 +119,7 @@ article > div {
 }
 
 article img {
-    height: 444px;
+    width: 579px;
 }
 
 .article-right {
@@ -131,22 +133,22 @@ article img {
 /* footer */
 footer {
     height: 160px;
-    padding-top: 32px;
-    background-color: #111827;
+    padding: 32px 200px 0;
+    background-color: var(--gray900);
     font-size: 16px;
     font-weight: 400;
     text-align: center;
 }
 
 footer > div {
-    width: 1120px;
+    max-width: 1120px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
 }
 
 .footer-copyright {
-    color: #9CA3AF;
+    color: var(--gray400);
 }
 
 .footer-link {
@@ -156,15 +158,14 @@ footer > div {
 }
 
 .footer-link a {
-    color: #E5E7EB;
+    color: var(--gray200);
     display: inline-block;
 }
 
 .footer-sns {
     margin: 0;
     padding: 0;
-    gap: 12px;
-    list-style: none;
+    font-size: 0;
 }
 
 .footer-sns > li {
@@ -179,4 +180,207 @@ footer > div {
 .footer-sns img {
     height: 20px;
     vertical-align: top;
+}
+
+/* PC & Tablet */
+@media (min-width: 768px) {
+    header #logo-small {
+        height: 0;
+    }
+}
+
+/* Tablet & Mobile */
+@media (max-width: 1199px) {
+    /* banner */
+    .banner > div {
+        flex-direction: column;
+        justify-content: end;
+        text-align: center;
+    }
+
+    .banner .banner-explain {
+        justify-items: center;
+    }
+
+    /* main */
+    article .enter {
+        display: none;
+    }
+
+    article > div {
+        gap: 24px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    article img {
+        width: 100%;
+    }
+
+    .article-right {
+        flex-direction: column;
+        align-items: flex-end;
+    }
+}
+
+/* PC */
+@media (min-width: 1200px) {
+    .banner > div {
+        width: 1110px;
+    }
+
+    main {
+        background-color: white;
+    }
+}
+
+/* Tablet */
+@media (max-width: 1199px) and (min-width: 768px) {
+    /* header */
+    header {
+        padding: 0 24px;
+    }
+    
+    /* banner */
+    .banner {
+        height: 771px;
+    }
+    
+    .banner.bottom {
+        height: 927px;
+        margin-top: 32px;
+    }
+
+    .banner a {
+        margin-top: 24px;
+    }
+    
+    .banner .banner-explain {
+        margin-bottom: 215px;
+    }
+
+    .banner .enter {
+        display: none;
+    }
+
+    /* main */
+    article {
+        padding: 24px;
+    }
+
+    .article-top-text {
+        margin-bottom: 16px;
+    }
+
+    article .heading {
+        font-size: 32px;
+        line-height: 42px;
+    }
+    
+    .article-explain {
+        font-size: 18px;
+        line-height: 26px;
+    }
+    
+    /* footer */
+    footer {
+        padding: 32px 104px 0;
+    }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+    .heading {
+        font-size: 32px;
+    }
+    
+    /* header */
+    header {
+        padding: 0 16px;
+    }
+
+    header #logo-big {
+        height: 0;
+    }
+
+    /* banner */
+    .banner.bottom {
+        margin-top: 63px;
+    }
+
+    .banner.bottom img {
+        width: 375px;
+    }
+    
+    .banner .banner-explain {
+        margin-bottom: 132px;
+    }
+    
+    .banner a {
+        width: 240px;
+        height: 48px;
+        margin-top: 18px;
+        font-size: 18px;
+    }
+    
+    .banner img {
+        width: 448px;
+    }
+    
+    /* main */
+    main {
+        padding-top: 32px;
+    }
+
+    article {
+        padding: 20px 16px;
+    }
+    
+    .article-top-text {
+        margin-bottom: 8px;
+        font-size: 16px;
+    }
+    
+    article .heading {
+        font-size: 24px;
+        line-height: 32px;
+    }
+
+    .article-explain {
+        margin-top: 16px;
+        font-size: 16px;
+        line-height: 26px;
+    }
+    
+    /* footer */
+    footer {
+        padding: 32px 32px 30px;
+    }
+
+    footer > div {
+        height: 100%;
+        margin: 0;
+        display: grid;
+        grid-template: 1fr 1fr / 4fr 3fr;
+    }
+
+    .footer-copyright {
+        grid-row: 2;
+        grid-column: 1;
+        justify-self: start;
+        align-self: end;
+    }
+
+    .footer-link {
+        grid-row: 1;
+        grid-column: 1;
+        justify-self: start;
+    }
+
+    .footer-sns {
+        grid-row: 1;
+        grid-column: 2;
+        justify-self: end;
+    }
 }
