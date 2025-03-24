@@ -1,5 +1,7 @@
 const email = document.querySelector("input#email");
+const nickname = document.querySelector("input#nickname");
 const password = document.querySelector("input#password");
+const passwordCheck = document.querySelector("input#password-check");
 
 function wrong(node, text){
     node.classList.add("wrong");
@@ -35,11 +37,27 @@ email.addEventListener("focusout", (e) => {
     }
 });
 
+nickname?.addEventListener("focusout", (e) => {
+    if (!e.target.value) {
+        wrong(e.target, "닉네임을 입력해주세요.");
+    } else {
+        correct(e.target);
+    }
+});
+
 password.addEventListener("focusout", (e) => {
     if (!e.target.value) {
         wrong(e.target, "비밀번호를 입력해주세요.");
     } else if (e.target.value.length < 8) {
         wrong(e.target, "비밀번호를 8자 이상 입력해주세요.");
+    } else {
+        correct(e.target);
+    }
+});
+
+passwordCheck?.addEventListener("focusout", (e) => {
+    if (password.value !== passwordCheck.value) {
+        wrong(e.target, "비밀번호가 일치하지 않습니다.");
     } else {
         correct(e.target);
     }
