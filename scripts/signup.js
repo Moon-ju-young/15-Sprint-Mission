@@ -29,7 +29,7 @@ function correct(node) {
 
 email.addEventListener("focusout", (e) => {
     if (!e.target.value) {
-        wrong(e.target, "이메일을을 입력해주세요.");
+        wrong(e.target, "이메일을 입력해주세요.");
     } else if (!e.target.validity.valid) {
         wrong(e.target, "잘못된 이메일 형식입니다.");
     } else {
