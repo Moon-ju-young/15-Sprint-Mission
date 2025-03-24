@@ -47,11 +47,20 @@ form input {
 }
 
 form input.wrong {
+    margin-bottom: 8px;
     border: solid 1px var(--red);
 }
 
 form input.correct {
     border: solid 1px var(--blue);
+}
+
+form .wrong-message {
+    margin: 8px 16px 18px;
+    color: var(--red);
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 24px;
 }
 
 form .password-container {
@@ -64,7 +73,6 @@ form .password-container .eye-btn {
     padding: 0;
     position: absolute;
     top: 16px;
-    bottom: 16px;
     right: 24px;
 }
 
