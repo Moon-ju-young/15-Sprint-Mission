@@ -185,7 +185,7 @@ footer > div {
 /* PC & Tablet */
 @media (min-width: 768px) {
     header #logo-small {
-        height: 0;
+        display: none;
     }
 }
 
@@ -301,7 +301,7 @@ footer > div {
     }
 
     header #logo-big {
-        height: 0;
+        display: none;
     }
 
     /* banner */
