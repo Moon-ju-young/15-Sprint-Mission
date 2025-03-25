@@ -7,6 +7,8 @@ const nickname = document.querySelector("input#nickname");
 const password = document.querySelector("input#password");
 const passwordCheck = document.querySelector("input#password-check");
 
+const passwordContainers = document.querySelectorAll(".password-container");
+
 function wrongInput(node, text){
     node.classList.add("wrong");
     node.classList.remove("correct");
@@ -88,3 +90,17 @@ form.addEventListener("focusout", () => {
     }
     button.removeAttribute("disabled");
 });
+
+passwordContainers.forEach( (node) => {
+    node.addEventListener("click", (e) => {
+        if (e.target.tagName === "IMG") {
+            if (e.currentTarget.firstElementChild.getAttribute("type") === "password"){
+                e.currentTarget.firstElementChild.setAttribute("type", "text");
+                e.target.setAttribute("src", "images/ic_eye_visible.svg");
+            } else {
+                e.currentTarget.firstElementChild.setAttribute("type", "password");
+                e.target.setAttribute("src", "images/ic_eye_invisible.svg");
+            }
+        }
+    });
+} )
