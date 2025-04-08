@@ -13,24 +13,16 @@ function wrongInput(node, text){
     node.classList.add("wrong");
     node.classList.remove("correct");
 
-    let wrongMessage;
-    if (node.nextElementSibling?.tagName === 'DIV'){
-        wrongMessage = node.nextElementSibling;
-    } else {
-        wrongMessage = document.createElement('div');
-        wrongMessage.setAttribute("class","wrong-message");
-    }
+    const wrongMessage = node.nextElementSibling;
     wrongMessage.textContent = text;
-    node.after(wrongMessage);
 }
 
 function correctInput(node) {
     node.classList.add("correct");
     node.classList.remove("wrong");
 
-    if (node.nextElementSibling?.tagName === 'DIV'){
-        node.nextElementSibling.remove();
-    }
+    const wrongMessage = node.nextElementSibling;
+    wrongMessage.textContent = null;
 }
 
 function passwordMatch() {

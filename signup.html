@@ -16,16 +16,20 @@
         <form>
             <label for="email">이메일</label>
             <input id="email" name="email" type="email" placeholder="이메일을 입력해주세요">
+            <div class="wrong-message"></div>
             <label for="nickname">닉네임</label>
             <input id="nickname" name="nickname" placeholder="닉네임을 입력해주세요">
+            <div class="wrong-message"></div>
             <label for="password">비밀번호</label>
             <div class="password-container">
                 <input id="password" name="password" type="password" placeholder="비밀번호를 입력해주세요">
+                <div class="wrong-message"></div>
                 <button class="eye-btn" type="button"><img src="images/ic_eye_invisible.svg"></button>
             </div>
             <label for="password-check">비밀번호 확인</label>
             <div class="password-container">
                 <input id="password-check" name="password-check" type="password" placeholder="비밀번호를 다시 한 번 입력해주세요">
+                <div class="wrong-message"></div>
                 <button class="eye-btn" type="button"><img src="images/ic_eye_invisible.svg"></button>
             </div>
             <button class="complete-btn" type="button" onclick="location.href='/login.html'" disabled>회원가입</button>
