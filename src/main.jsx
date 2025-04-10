@@ -5,6 +5,7 @@ import Items from './pages/Items.jsx';
 import Auth from './pages/Auth.jsx';
 import Login from './pages/Login.jsx';
 import Signup from './pages/Signup.jsx';
+import './reset.css';
 
 createRoot(document.getElementById('root')).render(
   <BrowserRouter>
