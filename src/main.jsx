@@ -1,6 +1,10 @@
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Index from './pages/Index.jsx';
+import Items from './pages/Items.jsx';
+import Auth from './pages/Auth.jsx';
+import Login from './pages/Login.jsx';
+import Signup from './pages/Signup.jsx';
 
 createRoot(document.getElementById('root')).render(
   <BrowserRouter>
