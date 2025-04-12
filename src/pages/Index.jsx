@@ -13,7 +13,7 @@ import icInstagram from '../assets/ic_instagram.svg';
 import './Index.css';
 
 function Index() {
-  return (<>
+  return (<div id="index">
     <header>
         <div>
             <Link className="logo" to="/">
@@ -95,7 +95,7 @@ function Index() {
             </ul>
         </div>
     </footer>
-    </>);
+    </div>);
 }
 
 export default Index;
