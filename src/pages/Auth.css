@@ -1,0 +1,156 @@
+#Auth {
+    * {
+        color: var(--gray800);
+    }
+
+    main {
+        max-width: 640px;
+        margin: 240px auto;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    a.logo {
+        width: 62%;
+        margin-bottom: 40px;
+    }
+
+    img.logo {
+        width: 100%;
+    }
+
+    form {
+        width: 100%;
+    }
+
+    form * {
+        display: block;
+        border: none;
+    }
+
+    form label {
+        margin-bottom: 16px;
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 26px;
+    }
+
+    form input {
+        width: 100%;
+        padding: 15px 24px ;
+        margin-bottom: 24px;
+        border-radius: 12px;
+        background-color: var(--gray100);
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 26px;
+    }
+
+    form input.wrong {
+        margin-bottom: 8px;
+        border: solid 1px var(--red);
+    }
+
+    form input.correct {
+        border: solid 1px var(--blue);
+    }
+
+    form input::placeholder {
+        color: var(--gray400);
+    }
+
+    form .wrong-message {
+        margin: 8px 16px 18px;
+        color: var(--red);
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 24px;
+    }
+
+    form .password-container {
+        position: relative;
+        justify-content: center;
+    }
+
+    form .password-container .eye-btn {
+        width: 24px;
+        padding: 0;
+        position: absolute;
+        top: 16px;
+        right: 24px;
+    }
+
+    form .password-container .eye-btn img {
+        width: 100%;
+    }
+
+    form .complete-btn {
+        width: 100%;
+        padding: 12px 0;
+        border-radius: 9999px;
+        background-color: var(--blue);
+        color: var(--gray100);
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 32px;
+    }
+
+    form .complete-btn:disabled {
+        background-color: var(--gray400);
+    }
+
+    .simple-login {
+        width: 100%;
+        padding: 16px 23px;
+        margin: 24px 0;
+        border-radius: 8px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #E6F2FF;
+        font-weight: 500;
+        font-size: 16px;
+    }
+
+    .simple-login > div {
+        display: flex;
+        gap: 16px;
+    }
+
+    .simple-login a {
+        height: 42px;
+        width: 42px;
+        padding-top: 10px;
+        border-radius: 9999px;
+        text-align: center;
+        display: block;
+    }
+
+    .simple-login .google {
+        background-color: white;
+    }
+
+    .simple-login .kakaotalk {
+        background-color: #F5E14B;
+    }
+
+    .guide-text {
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 24px;
+    }
+
+    .guide-text a {
+        color: var(--blue);
+        text-decoration: underline;
+    }
+
+    /* Mobile */
+    @media (max-width: 767px) {
+        main {
+            max-width: 432px;
+            padding: 0 16px;
+        }
+    }
+}
