@@ -13,6 +13,8 @@ import icInstagram from '../assets/ic_instagram.svg';
 import './Index.css';
 
 function Index() {
+    document.title = "판다마켓";
+
     return (<div id="index">
         <header>
             <div>

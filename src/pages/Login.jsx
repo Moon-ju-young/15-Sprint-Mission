@@ -5,12 +5,14 @@ import SimpleLogin from "../components/SimpleLogin";
 import SubmitButton from "../components/SubmitButton";
 
 function Login() {
+  document.title = "로그인";
+
   const [isValid, setIsValid] = useState(false);
   
   const onFocusout = (e) => {
     setTimeout( () => {
       const inputs = document.querySelectorAll("form input");
-      
+
       for (let input of inputs) {
         if (!input.classList.contains("correct")){
           setIsValid(false); return;

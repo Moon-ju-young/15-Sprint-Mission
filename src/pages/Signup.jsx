@@ -5,6 +5,8 @@ import SimpleLogin from "../components/SimpleLogin";
 import SubmitButton from "../components/SubmitButton";
 
 function Signup() {
+  document.title = "회원가입";
+
   const [isValid, setIsValid] = useState(false);
     
   const onFocusout = (e) => {
