@@ -26,7 +26,7 @@ function Item ( { name, price, favoriteCount, images } ) {
         <div className={styles.image} style={{backgroundImage: `url(${images && images[0]})`}}></div>
         <div className={styles.text}>
             <div className={styles.title}>{name}</div>
-            <div className={styles.price}>{price}원</div>
+            <div className={styles.price}>{price.toLocaleString()}원</div>
             <div className={styles.favoriteCount}>
                 <img src={icHeart} />
                 <span>{favoriteCount}</span>
