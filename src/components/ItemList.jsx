@@ -12,7 +12,7 @@ export default function ItemList ( { rows, columns, page, orderBy } ) {
 
     useEffect( () => {
         getItems();
-    }, []);
+    }, [rows, columns, page, orderBy]);
 
     return (<section className={styles.list} style={{gridTemplate: `repeat(${rows}, 1fr) / repeat(${columns}, 1fr)`}}>
         {items.map((e) => (
