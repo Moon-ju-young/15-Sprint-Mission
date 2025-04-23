@@ -1,4 +1,12 @@
 #items {
+    .title {
+        margin: 0;
+        color: var(--gray900);
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 32px;
+    }
+
     header {
         height: 70px;
         background-color: white;
@@ -44,6 +52,17 @@
 
     header img.progile {
         height: 40px;
+    }
+
+    .toolbar {
+        display: flex;
+    }
+
+    .toolbar .register {
+        border-radius: 8px;
+        background-color: var(--blue);
+        color: var(--gray100);
+        align-content: center;
     }
 
     /* Tablet */
