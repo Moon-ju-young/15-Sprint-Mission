@@ -5,11 +5,13 @@ import logoBig from '../assets/logo.png';
 import logoSmall from '../assets/logo_text.png';
 import icProfile from '../assets/ic_profile.svg';
 import './Items.css';
+import Dropdown from '../components/Dropdown';
 
 function Items() {
   document.title = "중고마켓";
 
   const [mode, setMode] = useState(window.innerWidth < 768 ? "Mobile" : (window.innerWidth < 1200 ? "Tablet" : "PC"));
+  const [order, setOrder] = useState("recent");
 
   const handleResize = () => {
     if (window.innerWidth < 768) { setMode("Mobile"); }
@@ -41,9 +43,9 @@ function Items() {
       <h2 className="title">전체 상품</h2>
       <input className="search" />
       <Link className="register">상품 등록하기</Link>
-      <select name="order" id="order"></select>
+      <Dropdown mode={mode} state={order} setState={setOrder} />
     </div>
-    <ItemList rows={2} columns={ mode==="PC" ? 5 : (mode==="Tablet" ? 3 : 2) } />
+    <ItemList rows={2} columns={ mode==="PC" ? 5 : (mode==="Tablet" ? 3 : 2) } orderBy={order} />
   </div>);
 }
 
