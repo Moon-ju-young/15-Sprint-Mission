@@ -1,0 +1,27 @@
+.dropdown {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0;
+    width: 130px;
+}
+
+.dropdown.small {
+    justify-content: center;
+    width: 42px;
+}
+
+.dropdownList {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    width: 130px;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+}
+
+.dropdownList li {
+    cursor: pointer;
+}
