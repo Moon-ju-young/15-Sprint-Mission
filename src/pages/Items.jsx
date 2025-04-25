@@ -42,7 +42,7 @@ function Items() {
     <div className="toolbar">
       <h2 className="title">전체 상품</h2>
       <input className="search" />
-      <Link className="register">상품 등록하기</Link>
+      <Link className="register" to="/additem">상품 등록하기</Link>
       <Dropdown mode={mode} state={order} setState={setOrder} />
     </div>
     <ItemList rows={2} columns={ mode==="PC" ? 5 : (mode==="Tablet" ? 3 : 2) } orderBy={order} />
