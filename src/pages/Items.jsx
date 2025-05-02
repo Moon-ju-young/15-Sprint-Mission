@@ -13,6 +13,7 @@ function Items() {
 
   const [mode, setMode] = useState(window.innerWidth < 768 ? "Mobile" : (window.innerWidth < 1200 ? "Tablet" : "PC"));
   const [order, setOrder] = useState("recent");
+  const [totalCount, setTotalCount] = useState(0);
 
   const handleResize = () => {
     if (window.innerWidth < 768) { setMode("Mobile"); }
@@ -40,7 +41,11 @@ function Items() {
     </header>
     <main>
       <h2 className="title">베스트 상품</h2>
-      <ItemList rows={1} columns={ mode==="PC" ? 4 : (mode==="Tablet" ? 2 : 1) } orderBy="favorite" />
+      <ItemList 
+        rows={1} columns={ mode==="PC" ? 4 : (mode==="Tablet" ? 2 : 1) } 
+        orderBy="favorite" 
+        setTotalCount={setTotalCount}
+      />
       <div className="toolbar">
         <h2 className="title">전체 상품</h2>
         <div className="search">
@@ -50,7 +55,11 @@ function Items() {
         <Link className="register" to="/additem">상품 등록하기</Link>
         <Dropdown mode={mode} state={order} setState={setOrder} />
       </div>
-      <ItemList rows={2} columns={ mode==="PC" ? 5 : (mode==="Tablet" ? 3 : 2) } orderBy={order} />
+      <ItemList 
+        rows={2} columns={ mode==="PC" ? 5 : (mode==="Tablet" ? 3 : 2) } 
+        orderBy={order} 
+        setTotalCount={setTotalCount}
+      />
     </main>
   </div>);
 }
