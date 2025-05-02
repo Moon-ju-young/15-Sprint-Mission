@@ -44,7 +44,7 @@ section.list {
 }
 
 /* Tablet */
-@media (max-width: 1199px) and (min-width: 768px) {
+@media (max-width: 1199px) {
     section.list {
         column-gap: 16px;
     }
