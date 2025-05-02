@@ -15,7 +15,7 @@ export default function ItemList ( { rows, columns, page, orderBy } ) {
     }, [rows, columns, page, orderBy]);
 
     return (<section className={styles.list} style={{gridTemplate: `repeat(${rows}, 1fr) / repeat(${columns}, 1fr)`}}>
-        {items.map((e) => (
+        {items.slice(0,rows*columns).map((e) => (
             <Item key={e.id} {...e} />
         ))}
     </section>);
