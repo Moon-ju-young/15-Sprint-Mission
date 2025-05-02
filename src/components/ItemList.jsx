@@ -3,10 +3,11 @@ import { getProducts } from "../api/api";
 import icHeart from "../assets/ic_heart.svg";
 import styles from "./ItemList.module.css";
 
-export default function ItemList ( { rows, columns, page, orderBy } ) {
+export default function ItemList ( { rows, columns, page, orderBy, setTotalCount } ) {
     const [items, setItems] = useState([]);
     const getItems = async () => {
-        const { list } = await getProducts({ page, pageSize: (rows*columns), orderBy });
+        const { totalCount, list } = await getProducts({ page, pageSize: (rows*columns), orderBy });
+        setTotalCount(totalCount);
         setItems(list);
     }
 
