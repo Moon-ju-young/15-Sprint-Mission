@@ -4,6 +4,10 @@ section.list {
     column-gap: 24px;
 }
 
+.list .item {
+    overflow: hidden;
+}
+
 .list .item .image {
     width: 100%;
     aspect-ratio: 1;
@@ -18,6 +22,12 @@ section.list {
     gap: 6px;
     flex-direction: column;
     margin-top: 16px;
+}
+
+.list .item .text > * {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .list .item .text .title {
