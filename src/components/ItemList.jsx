@@ -3,16 +3,17 @@ import { getProducts } from "../api/api";
 import icHeart from "../assets/ic_heart.svg";
 import styles from "./ItemList.module.css";
 
-export default function ItemList ( { rows, columns, page, orderBy, setTotalCount } ) {
+export default function ItemList ( { rows, columns, itemCount, page, orderBy, setTotalCount } ) {
     const [items, setItems] = useState([]);
     const getItems = async () => {
-        const { totalCount, list } = await getProducts({ page, pageSize: (rows*columns), orderBy });
+        const { totalCount, list } = await getProducts({ page, pageSize: (itemCount || rows*columns), orderBy });
         setTotalCount(totalCount);
         setItems(list);
     }
 
     useEffect( () => {
         getItems();
+        return () => { if (itemCount) return; }
     }, [rows, columns, page, orderBy]);
 
     return (<section className={styles.list} style={{gridTemplate: `repeat(${rows}, 1fr) / repeat(${columns}, 1fr)`}}>

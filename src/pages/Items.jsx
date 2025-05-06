@@ -47,6 +47,7 @@ function Items() {
       <h2 className="title">베스트 상품</h2>
       <ItemList 
         rows={1} columns={ mode==="PC" ? 4 : (mode==="Tablet" ? 2 : 1) } 
+        itemCount={4}
         orderBy="favorite" 
         setTotalCount={setTotalCount}
       />
