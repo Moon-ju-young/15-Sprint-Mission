@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import icArrow from "../assets/ic_arrow_left.svg";
 import styles from "./Pagenation.module.css";
 
 export default function Pagenation({ page, setPage, pageSize, totalCount }) {
@@ -18,19 +19,19 @@ export default function Pagenation({ page, setPage, pageSize, totalCount }) {
         setList(tempList);
     }, [page, maxPage]);
 
-    return (<div>
+    return (<div className={styles.pagenation}>
         <button 
             onClick={() => setPage( Math.ceil(page/5) === 1 ? 1 : Math.ceil(page/5 - 1)*5 )}
         >
-            {"<"}
+            <img src={icArrow} />
         </button>
         {list.map((e) => {
-            return <button key={e} className={e===page ? "selected" : ""} onClick={() => setPage(e)}>{e}</button>
+            return <button key={e} className={e===page ? styles.selected : ""} onClick={() => setPage(e)}>{e}</button>
         })}
         <button 
             onClick={() => setPage( Math.ceil(page/5) === Math.ceil(maxPage/5) ? maxPage : Math.ceil(page/5)*5+1 )}
         >
-            {">"}
+            <img src={icArrow} />
         </button>
     </div>);
 }
