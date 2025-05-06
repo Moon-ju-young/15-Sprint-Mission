@@ -14,6 +14,7 @@ function Items() {
   const [mode, setMode] = useState(window.innerWidth < 768 ? "Mobile" : (window.innerWidth < 1200 ? "Tablet" : "PC"));
   const [order, setOrder] = useState("recent");
   const [totalCount, setTotalCount] = useState(0);
+  const [page, setPage] = useState(1);
 
   const handleResize = () => {
     if (window.innerWidth < 768) { setMode("Mobile"); }
@@ -57,6 +58,7 @@ function Items() {
       </div>
       <ItemList 
         rows={2} columns={ mode==="PC" ? 5 : (mode==="Tablet" ? 3 : 2) } 
+        page={page}
         orderBy={order} 
         setTotalCount={setTotalCount}
       />
