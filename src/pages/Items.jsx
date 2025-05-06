@@ -7,13 +7,14 @@ import logoSmall from '../assets/logo_text.png';
 import icProfile from '../assets/ic_profile.svg';
 import icSearch from '../assets/ic_search.svg';
 import './Items.css';
+import Pagenation from '../components/Pagenation';
 
 function Items() {
   document.title = "중고마켓";
 
   const [mode, setMode] = useState(window.innerWidth < 768 ? "Mobile" : (window.innerWidth < 1200 ? "Tablet" : "PC"));
   const [order, setOrder] = useState("recent");
-  const [totalCount, setTotalCount] = useState(0);
+  const [totalCount, setTotalCount] = useState(1);
   const [page, setPage] = useState(1);
 
   const handleResize = () => {
@@ -62,6 +63,7 @@ function Items() {
         orderBy={order} 
         setTotalCount={setTotalCount}
       />
+      <Pagenation page={page} setPage={setPage} pageSize={ mode==="PC" ? 10 : (mode==="Tablet" ? 6 : 4) } totalCount={totalCount} />
     </main>
   </div>);
 }
