@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import ItemList from '../components/ItemList';
 import Dropdown from '../components/Dropdown';
@@ -24,6 +24,8 @@ function Items() {
   }
 
   window.onresize = handleResize;
+
+  useEffect(() => setPage(1), [order]);
 
   return (<div id="items">
     <header>
