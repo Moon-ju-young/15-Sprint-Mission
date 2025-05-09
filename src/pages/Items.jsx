@@ -23,7 +23,10 @@ function Items() {
     else { setMode("PC"); }
   }
 
-  window.onresize = handleResize;
+  useEffect(() => {
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   useEffect(() => setPage(1), [order]);
 
