@@ -1,0 +1,49 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
+
+* {
+    box-sizing: border-box;
+    font-family: inherit;
+}
+
+html {
+    font-family: Pretendard;
+}
+
+body {
+    margin: 0;
+	background-color: #FCFCFC;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+button {
+	cursor: pointer;
+	background-color: unset;
+}
+
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+
+ol, ul {
+	list-style: none;
+}
+
+blockquote, q {
+	quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
