@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import ItemList from '../components/ItemList';
 import Dropdown from '../components/Dropdown';
 import logoBig from '../assets/logo.png';
@@ -39,8 +39,8 @@ function Items() {
             <img id="logo-big" src={logoBig} alt="판다마켓" />
           </Link>
           <div className="container menu">
-            <Link>자유게시판</Link>
-            <Link className="selected">중고마켓</Link>
+            <NavLink>자유게시판</NavLink>
+            <NavLink className="selected">중고마켓</NavLink>
           </div>
         </div>
         <img className="profile" alt="프로필" src={icProfile} />
