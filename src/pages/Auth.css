@@ -53,7 +53,7 @@
     }
 
     form input.correct {
-        border: solid 1px var(--blue);
+        border: solid 1px var(--blue100);
     }
 
     form input::placeholder {
@@ -89,7 +89,7 @@
         width: 100%;
         padding: 12px 0;
         border-radius: 9999px;
-        background-color: var(--blue);
+        background-color: var(--blue100);
         color: var(--gray100);
         font-weight: 600;
         font-size: 20px;
@@ -142,7 +142,7 @@
     }
 
     .guide-text a {
-        color: var(--blue);
+        color: var(--blue100);
         text-decoration: underline;
     }
 
