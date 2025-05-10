@@ -1,23 +1,9 @@
-import { useEffect, useState } from "react";
-import { getProducts } from "../api/api";
 import icHeart from "../assets/ic_heart.svg";
 import styles from "./ItemList.module.css";
 
-export default function ItemList ( { rows, columns, itemCount, page, orderBy, setTotalCount } ) {
-    const [items, setItems] = useState([]);
-    const getItems = async () => {
-        const { totalCount, list } = await getProducts({ page, pageSize: (itemCount || rows*columns), orderBy });
-        setTotalCount(totalCount);
-        setItems(list);
-    }
-
-    useEffect( () => {
-        getItems();
-        return () => { if (itemCount) return; }
-    }, [rows, columns, page, orderBy]);
-
+export default function ItemList ( { rows, columns, items } ) {
     return (<section className={styles.list} style={{gridTemplate: `repeat(${rows}, 1fr) / repeat(${columns}, 1fr)`}}>
-        {items.slice(0,rows*columns).map((e) => (
+        {items.slice(0, rows*columns).map((e) => (
             <Item key={e.id} {...e} />
         ))}
     </section>);
