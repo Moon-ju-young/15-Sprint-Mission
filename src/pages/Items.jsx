@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import ItemList from '../components/ItemList';
+import Button from '../components/Button';
 import Dropdown from '../components/Dropdown';
 import Pagenation from '../components/Pagenation';
 import { getProducts } from "../api/api";
@@ -77,7 +78,7 @@ function Items() {
           <input placeholder="검색할 상품을 입력해주세요" />
           <img src={icSearch} />
         </div>
-        <Link className="register" to="/additem">상품 등록하기</Link>
+        <Button className="register" to="/additem">상품 등록하기</Button>
         <Dropdown mode={mode} state={orderBy} setState={setOrderBy} />
       </div>
       <ItemList rows={2} columns={PAGESIZE[mode]/2} items={totalItems} />

@@ -42,14 +42,6 @@
     header .login {
         width: 128px;
         height: 48px;
-        border-radius: 8px;
-        background-color: var(--blue100);
-        color: var(--gray100);
-        font-size: 16px;
-        font-weight: 600;
-        line-height: 26px;
-        text-align: center;
-        align-content: center;
     }
 
     /* banner */
@@ -74,18 +66,10 @@
         margin-bottom: 60px;
     }
 
-    .banner a {
+    .banner button {
         width: 357px;
         height: 56px;
         margin-top: 32px;
-        border-radius: 40px;
-        background-color: var(--blue100);
-        color: var(--gray50);
-        font-size: 20px;
-        font-weight: 600;
-        text-align: center;
-        align-content: center;
-        display: block;
     }
 
     .banner img {

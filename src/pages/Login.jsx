@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import Input from "../components/Input";
 import SimpleLogin from "../components/SimpleLogin";
-import SubmitButton from "../components/SubmitButton";
+import Button from "../components/Button";
 
 function Login() {
   document.title = "로그인";
@@ -28,7 +28,8 @@ function Login() {
         emptyWrongMessage="이메일을 입력해주세요." invalidWrongMessage="잘못된 이메일 형식입니다." />
       <Input label="비밀번호" name="password" type="password" placeholder="비밀번호를 입력해주세요"
         emptyWrongMessage="비밀번호를 입력해주세요." invalidWrongMessage="비밀번호를 8자 이상 입력해주세요." />
-      <SubmitButton className="complete-btn" link="/items" disabled={!isValid}>로그인</SubmitButton>
+      <Button styleType="large" className="complete-btn" to="/items" disabled={!isValid} 
+        onClick={(e) => e.preventDefault()}>로그인</Button>
     </form>
     <SimpleLogin />
     <div className="guide-text">

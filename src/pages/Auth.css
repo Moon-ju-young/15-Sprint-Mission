@@ -84,12 +84,6 @@
     form .complete-btn {
         width: 100%;
         padding: 12px 0;
-        border-radius: 9999px;
-        background-color: var(--blue100);
-        color: var(--gray100);
-        font-weight: 600;
-        font-size: 20px;
-        line-height: 32px;
     }
 
     form .complete-btn:disabled {

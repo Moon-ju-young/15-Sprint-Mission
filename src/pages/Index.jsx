@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import Button from '../components/Button';
 import logoBig from '../assets/logo.png';
 import logoSmall from '../assets/logo_text.png';
 import home01 from '../assets/home_01.png';
@@ -22,14 +23,14 @@ function Index() {
                     <img id="logo-small" src={logoSmall} />
                     <img id="logo-big" src={logoBig} alt="판다마켓" />
                 </Link>
-                <Link className="login" to="/login">로그인</Link>
+                <Button className="login" to="/login">로그인</Button>
             </div>
         </header>
         <section className="banner top">
             <div>
                 <div className="banner-explain">
                     <h2 className="heading">일상의 모든 물건을 <br className="enter" />거래해 보세요</h2>
-                    <Link to="/items">구경하러 가기</Link>
+                    <Button styleType="large" to="/items">구경하러 가기</Button>
                 </div>
                 <img src={homeTop} />
             </div>
