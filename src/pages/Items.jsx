@@ -1,13 +1,10 @@
 import { useEffect, useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import Nav from '../components/Nav';
 import ItemList from '../components/ItemList';
 import Button from '../components/Button';
 import Dropdown from '../components/Dropdown';
 import Pagenation from '../components/Pagenation';
 import { getProducts } from "../api/api";
-import logoBig from '../assets/logo.png';
-import logoSmall from '../assets/logo_text.png';
-import icProfile from '../assets/ic_profile.svg';
 import icSearch from '../assets/ic_search.svg';
 import './Items.css';
 
@@ -54,21 +51,7 @@ function Items() {
   }, [page, mode, orderBy]);
 
   return (<div id="items">
-    <header>
-      <div className="container">
-        <div className="container">
-          <Link className="logo" to="/">
-            <img id="logo-small" src={logoSmall} />
-            <img id="logo-big" src={logoBig} alt="판다마켓" />
-          </Link>
-          <div className="container menu">
-            <NavLink>자유게시판</NavLink>
-            <NavLink className="selected">중고마켓</NavLink>
-          </div>
-        </div>
-        <img className="profile" alt="프로필" src={icProfile} />
-      </div>
-    </header>
+    <Nav type="profile" />
     <main>
       <h2 className="title">베스트 상품</h2>
       <ItemList rows={1} columns={PAGESIZE[mode]/2 - 1} items={bestItems} />

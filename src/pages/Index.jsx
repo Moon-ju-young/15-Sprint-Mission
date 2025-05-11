@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
+import Nav from '../components/Nav';
 import Button from '../components/Button';
-import logoBig from '../assets/logo.png';
-import logoSmall from '../assets/logo_text.png';
 import home01 from '../assets/home_01.png';
 import home02 from '../assets/home_02.png';
 import home03 from '../assets/home_03.png';
@@ -17,15 +16,7 @@ function Index() {
     document.title = "판다마켓";
 
     return (<div id="index">
-        <header>
-            <div>
-                <Link className="logo" to="/">
-                    <img id="logo-small" src={logoSmall} />
-                    <img id="logo-big" src={logoBig} alt="판다마켓" />
-                </Link>
-                <Button className="login" to="/login">로그인</Button>
-            </div>
-        </header>
+        <Nav type="default" />
         <section className="banner top">
             <div>
                 <div className="banner-explain">
