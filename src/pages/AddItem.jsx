@@ -1,5 +1,9 @@
+import Nav from "../components/Nav";
+
 function AddItem () {
-    return;
+    return (<div className="additem">
+        <Nav type="profile" />
+    </div>);
 }
 
 export default AddItem;
