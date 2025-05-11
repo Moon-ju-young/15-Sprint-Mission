@@ -203,7 +203,7 @@
             margin-top: 32px;
         }
 
-        .banner a {
+        .banner button {
             margin-top: 24px;
         }
         
@@ -300,7 +300,7 @@
             justify-items: center;
         }
         
-        .banner a {
+        .banner button {
             width: 240px;
             height: 48px;
             margin-top: 18px;
