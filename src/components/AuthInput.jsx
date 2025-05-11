@@ -24,30 +24,15 @@ function PasswordInput ({ name, label, placeholder, onFocusout, valid, wrongMess
         } catch (e) {}
     }
 
-    if (name === "password-check") {
-        return (
-        <Input required name={name} label={label}
-            className="password"
-            type={isVisible ? "text" : "password"} 
-            placeholder={placeholder}
-            onChange={passwordMatch}
-        >
-            <button className="eye-btn" type="button" onClick={onClick}>
-                <img src={isVisible ? icEyeVisible : icEyeInvisible} />
-            </button>
-            <div className="wrong-message">{wrongMessage}</div>
-        </Input>
-        );
-    }
     return (
     <Input required name={name} label={label}
         className="password"
-        inputClassName={valid} 
         type={isVisible ? "text" : "password"} 
         placeholder={placeholder}
-        minLength="8"
-        onBlur={onFocusout}
         onChange={passwordMatch}
+        {...(name === "password-check" 
+            ? { onChange: passwordMatch }
+            : { inputClassName: valid, minLength: 8, onBlur: onFocusout })} 
     >
         <button className="eye-btn" type="button" onClick={onClick}>
             <img src={isVisible ? icEyeVisible : icEyeInvisible} />
