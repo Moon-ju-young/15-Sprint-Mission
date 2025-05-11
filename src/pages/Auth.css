@@ -21,26 +21,11 @@
     }
 
     form * {
-        display: block;
         border: none;
     }
 
-    form label {
-        margin-bottom: 16px;
-        font-weight: 700;
-        font-size: 18px;
-        line-height: 26px;
-    }
-
     form input {
-        width: 100%;
-        padding: 15px 24px ;
         margin-bottom: 24px;
-        border-radius: 12px;
-        background-color: var(--gray100);
-        font-weight: 400;
-        font-size: 16px;
-        line-height: 26px;
     }
 
     form input.wrong {
@@ -50,10 +35,6 @@
 
     form input.correct {
         border: solid 1px var(--blue100);
-    }
-
-    form input::placeholder {
-        color: var(--gray400);
     }
 
     form .wrong-message {
@@ -66,7 +47,6 @@
 
     form .password {
         position: relative;
-        justify-content: center;
     }
 
     form .password .eye-btn {
@@ -84,10 +64,6 @@
     form .complete-btn {
         width: 100%;
         padding: 12px 0;
-    }
-
-    form .complete-btn:disabled {
-        background-color: var(--gray400);
     }
 
     .simple-login {
