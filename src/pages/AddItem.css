@@ -1,0 +1,116 @@
+#additem {
+    .head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 24px;
+    }
+
+    .head .title {
+        display: block;
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 32px;
+    }
+
+    .head button {
+        width: 74px;
+        height: 42px;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+        max-width: 1200px;
+        margin: 24px auto;
+    }
+
+    form .label {
+        display: block;
+        margin-bottom: 16px;
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 26px;
+    }
+
+    form .file-image {
+        display: flex;
+        gap: 24px;
+    }
+
+    form .file-image > * {
+        width: 282px;
+        height: 282px;
+        border-radius: 12px;
+        background-position: center;
+        background-size: cover;
+    }
+
+    form .file-image > label {
+        cursor: pointer;
+        justify-items: center;
+        align-content: center;
+        background-color: var(--gray100);
+    }
+
+    form .file-image > label div {
+        margin-top: 12px;
+        color: var(--gray400);
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 26px;
+    }
+
+    form .file-image > section {
+        position: relative;
+        border: 1px solid var(--gray50);
+    }
+
+    form .file-image > section button {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        padding: 0;
+        border: none;
+    }
+
+    form .file-image > input {
+        display: none;
+    }
+
+    form .wrong-message {
+        margin: 16px 0 0;
+        color: var(--red);
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 26px;
+    }
+
+    form #item-introduction {
+        height: 282px;
+    }
+
+    .tags {
+        display: flex;
+        gap: 12px;
+        margin-top: 14px;
+    }
+
+    @media (max-width: 1199px) {
+        form {
+            margin: 16px 24px;
+        }
+
+        form .file-image > * {
+            width: 168px;
+            height: 168px;
+        }
+    }
+
+    @media (max-width: 767px) {
+        form {
+            margin: 24px 15px;
+        }
+    }
+}
