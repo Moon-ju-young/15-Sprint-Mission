@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import Input from "../components/Input";
+import AuthInput from "../components/AuthInput";
 import SimpleLogin from "../components/SimpleLogin";
 import Button from "../components/Button";
 
@@ -24,13 +24,13 @@ function Signup() {
 
   return (<>
     <form onBlur={onFocusout}>
-      <Input label="이메일" name="email" type="email" placeholder="이메일을 입력해주세요"
+      <AuthInput label="이메일" name="email" type="email" placeholder="이메일을 입력해주세요"
         emptyWrongMessage="이메일을 입력해주세요." invalidWrongMessage="잘못된 이메일 형식입니다." />
-      <Input label="닉네임" name="nickname" placeholder="닉네임을 입력해주세요"
+      <AuthInput label="닉네임" name="nickname" placeholder="닉네임을 입력해주세요"
         emptyWrongMessage="닉네임을 입력해주세요." />
-      <Input label="비밀번호" name="password" type="password" placeholder="비밀번호를 입력해주세요"
+      <AuthInput label="비밀번호" name="password" type="password" placeholder="비밀번호를 입력해주세요"
         emptyWrongMessage="비밀번호를 입력해주세요." invalidWrongMessage="비밀번호를 8자 이상 입력해주세요." />
-      <Input label="비밀번호 확인" name="password-check" type="password" placeholder="비밀번호를 다시 한 번 입력해주세요" />
+      <AuthInput label="비밀번호 확인" name="password-check" type="password" placeholder="비밀번호를 다시 한 번 입력해주세요" />
       <Button styleType="large" className="complete-btn" to="/login" disabled={!isValid} 
         onClick={(e) => e.preventDefault()}>회원가입</Button>
     </form>
