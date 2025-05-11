@@ -1,9 +1,11 @@
 import styles from "./Input.module.css";
 
-function Input ({ label, name, className, inputClassName, ...props }) {
+function Input ({ label, name, className, inputClassName, type, ...props }) {
     return (<div className={styles.box+' '+className}>
         <label htmlFor={name}>{label}</label>
-        <input id={name} name={name} className={inputClassName} {...props} />
+        {type === "textarea" 
+            ? <textarea id={name} name={name} className={inputClassName} {...props} />
+            : <input id={name} name={name} type={type} className={inputClassName} {...props} />}
     </div>);
 }
 

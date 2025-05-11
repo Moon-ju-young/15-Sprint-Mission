@@ -9,7 +9,8 @@
     line-height: 26px;
 }
 
-.box input {
+.box input,
+.box textarea {
     width: 100%;
     padding: 15px 24px ;
     border: none;
@@ -20,6 +21,11 @@
     line-height: 26px;
 }
 
-.box input::placeholder {
+.box textarea {
+    resize: none;
+}
+
+.box input::placeholder,
+.box textarea::placeholder {
     color: var(--gray400);
 }
