@@ -20,47 +20,6 @@
         width: 100%;
     }
 
-    form * {
-        border: none;
-    }
-
-    form input {
-        margin-bottom: 24px;
-    }
-
-    form input.wrong {
-        margin-bottom: 8px;
-        border: solid 1px var(--red);
-    }
-
-    form input.correct {
-        border: solid 1px var(--blue100);
-    }
-
-    form .wrong-message {
-        margin: 8px 16px 18px;
-        color: var(--red);
-        font-weight: 600;
-        font-size: 14px;
-        line-height: 24px;
-    }
-
-    form .password {
-        position: relative;
-    }
-
-    form .password .eye-btn {
-        width: 24px;
-        padding: 0;
-        position: absolute;
-        top: 58px;
-        right: 24px;
-    }
-
-    form .password .eye-btn img {
-        width: 100%;
-    }
-
     form .complete-btn {
         width: 100%;
         padding: 12px 0;

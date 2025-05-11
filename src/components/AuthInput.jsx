@@ -2,8 +2,9 @@ import { useState } from "react";
 import Input from "./Input";
 import icEyeVisible from "../assets/ic_eye_visible.svg";
 import icEyeInvisible from "../assets/ic_eye_invisible.svg";
+import "./AuthInput.css";
 
-function PasswordInput ({ name, label, placeholder, onFocusout, valid, wrongMessage }) {
+function PasswordInput ({ name, className, onFocusout, valid, wrongMessage, ...props }) {
     const [isVisible, setIsVisible] = useState(false);
     const onClick = () => {
         setIsVisible((prev) => !prev);
@@ -25,14 +26,14 @@ function PasswordInput ({ name, label, placeholder, onFocusout, valid, wrongMess
     }
 
     return (
-    <Input required name={name} label={label}
-        className="password"
+    <Input required name={name}
+        className={"password "+className}
         type={isVisible ? "text" : "password"} 
-        placeholder={placeholder}
         onChange={passwordMatch}
         {...(name === "password-check" 
             ? { onChange: passwordMatch }
-            : { inputClassName: valid, minLength: 8, onBlur: onFocusout })} 
+            : { inputClassName: valid, minLength: 8, onBlur: onFocusout })}
+        {...props}
     >
         <button className="eye-btn" type="button" onClick={onClick}>
             <img src={isVisible ? icEyeVisible : icEyeInvisible} />
@@ -60,11 +61,10 @@ export default function AuthInput ({ label, name, type="text", placeholder='', e
     }
 
     if (type === "password") {
-        return (<>
-            <PasswordInput name={name} label={label} placeholder={placeholder} onFocusout={onFocusout} valid={valid} wrongMessage={wrongMessage} />
-        </>);
+        return (<PasswordInput className="auth-input-box" name={name} label={label} placeholder={placeholder} 
+            onFocusout={onFocusout} valid={valid} wrongMessage={wrongMessage} />);
     }
-    return (<Input label={label} name={name} type={type} placeholder={placeholder} onBlur={onFocusout} inputClassName={valid}>
+    return (<Input className="auth-input-box" label={label} name={name} type={type} placeholder={placeholder} onBlur={onFocusout} inputClassName={valid}>
         <div className="wrong-message">{wrongMessage}</div>
     </Input>);
 }
