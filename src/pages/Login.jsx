@@ -1,12 +1,11 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import AuthInput from "../components/AuthInput";
 import SimpleLogin from "../components/SimpleLogin";
 import Button from "../components/Button";
 
 function Login() {
-  document.title = "로그인";
-
   const [isValid, setIsValid] = useState(false);
   
   const onFocusout = (e) => {
@@ -23,6 +22,9 @@ function Login() {
   }
 
   return (<>
+    <Helmet>
+      <title>로그인</title>
+    </Helmet>
     <form onBlur={onFocusout}>
       <AuthInput label="이메일" name="email" type="email" placeholder="이메일을 입력해주세요"
         emptyWrongMessage="이메일을 입력해주세요." invalidWrongMessage="잘못된 이메일 형식입니다." />

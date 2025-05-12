@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import Nav from '../components/Nav';
 import ItemList from '../components/ItemList';
 import Button from '../components/Button';
@@ -15,8 +16,6 @@ const PAGESIZE = {
 }
 
 function Items() {
-  document.title = "중고마켓";
-
   const [mode, setMode] = useState(window.innerWidth < 768 ? "Mobile" : (window.innerWidth < 1200 ? "Tablet" : "PC"));
   const [orderBy, setOrderBy] = useState("recent");
   const [totalCount, setTotalCount] = useState(1);
@@ -51,6 +50,9 @@ function Items() {
   }, [page, mode, orderBy]);
 
   return (<div id="items">
+    <Helmet>
+      <title>중고마켓</title>
+    </Helmet>
     <Nav type="profile" />
     <main>
       <h2 className="title">베스트 상품</h2>

@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import Nav from '../components/Nav';
 import Button from '../components/Button';
 import home01 from '../assets/home_01.png';
@@ -13,9 +14,10 @@ import icInstagram from '../assets/ic_instagram.svg';
 import './Index.css';
 
 function Index() {
-    document.title = "판다마켓";
-
     return (<div id="index">
+        <Helmet>
+            <title>판다마켓</title>
+        </Helmet>
         <Nav type="default" />
         <section className="banner top">
             <div>

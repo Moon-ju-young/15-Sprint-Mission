@@ -6,6 +6,7 @@ import Tag from "../components/Tag";
 import icPlus from "../assets/ic_plus.svg";
 import icX from "../assets/ic_X.svg";
 import "./AddItem.css";
+import { Helmet } from "react-helmet-async";
 
 function AddItem () {
     const [itemImage, setItemImage] = useState(null);
@@ -24,6 +25,9 @@ function AddItem () {
     }
 
     return (<div id="additem">
+        <Helmet>
+            <title>중고마켓</title>
+        </Helmet>
         <Nav type="profile" />
         <form onChange={(e) => setIsValid(e.currentTarget.checkValidity())}>
             <div>

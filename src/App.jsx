@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HelmetProvider } from 'react-helmet-async';
 import Index from './pages/Index.jsx';
 import Items from './pages/Items.jsx';
 import AddItem from './pages/AddItem.jsx';
@@ -10,20 +11,22 @@ import './color.css';
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route index element={<Index />} />
+    <HelmetProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route index element={<Index />} />
 
-        <Route path="items" element={<Items />} />
+          <Route path="items" element={<Items />} />
 
-        <Route path="additem" element={<AddItem />} />
+          <Route path="additem" element={<AddItem />} />
 
-        <Route element={<Auth />}>
-          <Route path="login" element={<Login />} />
-          <Route path="signup" element={<Signup />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+          <Route element={<Auth />}>
+            <Route path="login" element={<Login />} />
+            <Route path="signup" element={<Signup />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </HelmetProvider>
   );
 }
 
