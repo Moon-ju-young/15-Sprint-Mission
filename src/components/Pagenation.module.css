@@ -18,8 +18,7 @@
     line-height: 26px;
 }
 
-.pagenation button:disabled {
-    cursor: default;
+.pagenation button:disabled img {
     opacity: 0.3;
 }
 
