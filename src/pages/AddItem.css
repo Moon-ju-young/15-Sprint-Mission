@@ -102,6 +102,10 @@
             margin: 16px 24px;
         }
 
+        form .file-image {
+            gap: 10px;
+        }
+
         form .file-image > * {
             width: 168px;
             height: 168px;
