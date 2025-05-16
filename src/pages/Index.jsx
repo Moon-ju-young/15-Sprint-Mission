@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
-import logoBig from '../assets/logo.png';
-import logoSmall from '../assets/logo_text.png';
+import { Helmet } from 'react-helmet-async';
+import Nav from '../components/Nav';
+import Button from '../components/Button';
 import home01 from '../assets/home_01.png';
 import home02 from '../assets/home_02.png';
 import home03 from '../assets/home_03.png';
@@ -13,23 +14,16 @@ import icInstagram from '../assets/ic_instagram.svg';
 import './Index.css';
 
 function Index() {
-    document.title = "판다마켓";
-
     return (<div id="index">
-        <header>
-            <div>
-                <Link className="logo" to="/">
-                    <img id="logo-small" src={logoSmall} />
-                    <img id="logo-big" src={logoBig} alt="판다마켓" />
-                </Link>
-                <Link className="login" to="/login">로그인</Link>
-            </div>
-        </header>
+        <Helmet>
+            <title>판다마켓</title>
+        </Helmet>
+        <Nav type="default" />
         <section className="banner top">
             <div>
                 <div className="banner-explain">
                     <h2 className="heading">일상의 모든 물건을 <br className="enter" />거래해 보세요</h2>
-                    <Link to="/items">구경하러 가기</Link>
+                    <Button styleType="large" to="/items">구경하러 가기</Button>
                 </div>
                 <img src={homeTop} />
             </div>

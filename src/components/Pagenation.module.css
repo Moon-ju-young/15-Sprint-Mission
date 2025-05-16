@@ -18,9 +18,13 @@
     line-height: 26px;
 }
 
+.pagenation button:disabled img {
+    opacity: 0.3;
+}
+
 .pagenation button.selected {
     border: none;
-    background-color: var(--blue);
+    background-color: var(--blue100);
     color: var(--gray50);
 }
 

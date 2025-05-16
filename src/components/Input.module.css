@@ -1,0 +1,31 @@
+.box > * {
+    display: block;
+}
+
+.box label {
+    margin-bottom: 16px;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 26px;
+}
+
+.box input,
+.box textarea {
+    width: 100%;
+    padding: 15px 24px ;
+    border: none;
+    border-radius: 12px;
+    background-color: var(--gray100);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 26px;
+}
+
+.box textarea {
+    resize: none;
+}
+
+.box input::placeholder,
+.box textarea::placeholder {
+    color: var(--gray400);
+}

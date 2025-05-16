@@ -3,6 +3,7 @@
 * {
     box-sizing: border-box;
     font-family: inherit;
+	color: var(--gray800);
 }
 
 html {
@@ -22,6 +23,10 @@ a {
 button {
 	cursor: pointer;
 	background-color: unset;
+}
+
+button:disabled {
+	cursor: default;
 }
 
 article, aside, details, figcaption, figure, 

@@ -1,0 +1,39 @@
+.btn {
+    padding: 0;
+    border: none;
+    background-color: var(--blue100);
+    color: var(--gray100);
+    font-weight: 600;
+    text-align: center;
+    align-content: center;
+}
+
+.btn:hover {
+    background-color: var(--blue200);
+}
+
+.btn:active {
+    background-color: var(--blue300);
+}
+
+.btn:disabled {
+    background-color: var(--gray400);
+}
+
+.btn.small {
+    border-radius: 8px;
+    font-size: 16px;
+    line-height: 26px;
+}
+
+.btn.medium {
+    border-radius: 9999px;
+    font-size: 18px;
+    line-height: 26px;
+}
+
+.btn.large {
+    border-radius: 9999px;
+    font-size: 20px;
+    line-height: 32px;
+}
