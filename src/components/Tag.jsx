@@ -1,10 +1,10 @@
 import icX from "../assets/ic_X.svg";
 import styles from "./Tag.module.css";
 
-function Tag({ children }) {
-    return (<div className={styles.tag} >
+function Tag({ children, onXClick, ...props }) {
+    return (<div className={styles.tag} {...props}>
         {children}
-        <img src={icX} />
+        <button type="button" onClick={onXClick}><img src={icX} /></button>
     </div>);
 }
 
