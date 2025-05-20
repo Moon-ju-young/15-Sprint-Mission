@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import Nav from '../components/Nav';
 import ItemList from '../components/ItemList';
@@ -22,6 +23,7 @@ function Items() {
   const [page, setPage] = useState(1);
   const [bestItems, setBestItems] = useState([]);
   const [totalItems, setTotalItems] = useState([]);
+  const navigate = useNavigate();
 
   const getItems = async (page, pageSize, orderBy) => {
     const { totalCount, list } = await getProducts({ page, pageSize, orderBy });
@@ -63,7 +65,7 @@ function Items() {
           <input placeholder="검색할 상품을 입력해주세요" />
           <img src={icSearch} />
         </div>
-        <Button className="register" to="/additem">상품 등록하기</Button>
+        <Button className="register" onClick={() => navigate("/additem")}>상품 등록하기</Button>
         <Dropdown mode={mode} state={orderBy} setState={setOrderBy} />
       </div>
       <ItemList rows={2} columns={PAGESIZE[mode]/2} items={totalItems} />

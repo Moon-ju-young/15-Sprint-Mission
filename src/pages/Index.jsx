@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import Nav from '../components/Nav';
 import Button from '../components/Button';
@@ -14,6 +14,8 @@ import icInstagram from '../assets/ic_instagram.svg';
 import './Index.css';
 
 function Index() {
+    const navigate = useNavigate();
+
     return (<div id="index">
         <Helmet>
             <title>판다마켓</title>
@@ -23,7 +25,7 @@ function Index() {
             <div>
                 <div className="banner-explain">
                     <h2 className="heading">일상의 모든 물건을 <br className="enter" />거래해 보세요</h2>
-                    <Button styleType="large" to="/items">구경하러 가기</Button>
+                    <Button styleType="large" onClick={() => navigate("/items")}>구경하러 가기</Button>
                 </div>
                 <img src={homeTop} />
             </div>
