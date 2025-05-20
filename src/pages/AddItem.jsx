@@ -73,7 +73,10 @@ function AddItem () {
             <Input label="판매가격" name="price" type="number" placeholder="판매 가격을 입력해주세요" required />
             <Input label="태그" name="tag" placeholder="태그를 입력해주세요" onKeyDown={handleKeyDown}>
                 <div className="tags">
-                    {tags.map((element) => <Tag key={element}>{'#'+element}</Tag>)}
+                    {tags.map((element, index) => 
+                        (<Tag key={element} onXClick={() => setTags((prev) => prev.filter((ele, ind) => (index !== ind)))}>
+                            {'#'+element}
+                        </Tag>))}
                 </div>
             </Input>
         </form>
