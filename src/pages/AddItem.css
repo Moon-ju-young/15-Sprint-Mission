@@ -91,6 +91,12 @@
         height: 282px;
     }
 
+    form #price::-webkit-outer-spin-button,
+    form #price::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
     .tags {
         display: flex;
         flex-wrap: wrap;
