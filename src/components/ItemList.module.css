@@ -6,6 +6,7 @@ section.list {
 
 .list .item {
     overflow: hidden;
+    cursor: pointer;
 }
 
 .list .item .image {
