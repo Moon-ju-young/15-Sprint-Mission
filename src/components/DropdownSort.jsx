@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import icArrowDown from '../assets/ic_arrow_down.svg';
 import icSort from '../assets/ic_sort.svg';
-import styles from './Dropdown.module.css';
+import styles from './DropdownSort.module.css';
 
 const option = { recent: "최신순", favorite: "좋아요순", }
 

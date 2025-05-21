@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet-async';
 import Nav from '../components/Nav';
 import ItemList from '../components/ItemList';
 import Button from '../components/Button';
-import Dropdown from '../components/Dropdown';
+import Dropdown from '../components/DropdownSort';
 import Pagenation from '../components/Pagenation';
 import { getProducts } from "../api/api";
 import icSearch from '../assets/ic_search.svg';
