@@ -48,10 +48,13 @@ section.list {
 .list .item .text .favoriteCount {
     display: flex;
     gap: 4px;
-    color: var(--gray600);
     font-size: 12px;
     font-weight: 500;
     line-height: 18px;
+}
+
+.list .item .text .favoriteCount span {
+    color: var(--gray600);
 }
 
 /* Tablet */
