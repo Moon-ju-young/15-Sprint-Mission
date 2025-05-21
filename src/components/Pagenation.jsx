@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import icArrow from "../assets/ic_arrow_left.svg";
+import icArrow from "../assets/arrow/ic_arrow_right_active.svg";
 import styles from "./Pagenation.module.css";
 
 export default function Pagenation({ page, setPage, pageSize, totalCount }) {

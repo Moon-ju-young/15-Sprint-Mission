@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import icHeart from "../assets/ic_heart.svg";
+import icHeart from "../assets/heart/ic_heart_small_inactive.svg";
 import styles from "./ItemList.module.css";
 
 export default function ItemList ( { rows, columns, items } ) {

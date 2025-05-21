@@ -1,5 +1,5 @@
-import icGoogle from "../assets/ic_google_color.svg";
-import icKakaotalk from "../assets/ic_kakaotalk_color.svg";
+import icGoogle from "../assets/sns/ic_google_color.svg";
+import icKakaotalk from "../assets/sns/ic_kakaotalk_color.svg";
 
 export default function SimpleLogin () {
     return (<div className="simple-login">
