@@ -24,8 +24,8 @@ export default function Pagenation({ page, setPage, pageSize, totalCount }) {
 
     return (<div className={styles.pagenation}>
         <button 
-            disabled={page <= 1}
-            onClick={() => setPage( Math.ceil(page/5) === 1 ? 1 : Math.ceil(page/5 - 1)*5 )}
+            disabled={Math.ceil(page/5) === 1}
+            onClick={() => setPage(Math.ceil(page/5 - 1)*5)}
         >
             <img className={styles.active} src={icArrowLeftActive} />
             <img className={styles.inactive} src={icArrowLeftInactive} />
@@ -34,8 +34,8 @@ export default function Pagenation({ page, setPage, pageSize, totalCount }) {
             return <button key={e} className={e===page ? styles.selected : ""} onClick={() => setPage(e)}>{e}</button>
         })}
         <button 
-            disabled={page >= maxPage}
-            onClick={() => setPage( Math.ceil(page/5) === Math.ceil(maxPage/5) ? maxPage : Math.ceil(page/5)*5+1 )}
+            disabled={Math.ceil(page/5) === Math.ceil(maxPage/5)}
+            onClick={() => setPage(Math.ceil(page/5)*5+1)}
         >
             <img className={styles.active} src={icArrowRightActive} />
             <img className={styles.inactive} src={icArrowRightInactive} />
