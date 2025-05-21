@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import Index from './pages/Index.jsx';
 import Items from './pages/Items.jsx';
+import ItemProduct from './pages/ItemProduct.jsx';
 import AddItem from './pages/AddItem.jsx';
 import Auth from './pages/Auth.jsx';
 import Login from './pages/Login.jsx';
@@ -16,7 +17,10 @@ function App() {
         <Routes>
           <Route index element={<Index />} />
 
-          <Route path="items" element={<Items />} />
+          <Route path="items">
+            <Route index element={<Items />} />
+            <Route path=":productId" element={<ItemProduct />} />
+          </Route>
 
           <Route path="additem" element={<AddItem />} />
 
