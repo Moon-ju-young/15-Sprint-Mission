@@ -19,7 +19,7 @@
 }
 
 .pagenation button:disabled img {
-    opacity: 0.3;
+    opacity: 0.55;
 }
 
 .pagenation button.selected {
