@@ -9,7 +9,7 @@ import styles from "./Nav.module.css";
 export default function Nav({ type = "default" }) {
     const navigate = useNavigate(); 
 
-    return (<header className={styles.nav}>
+    return (<nav className={styles.nav}>
         <div className={styles.container}>
             <div className={styles.container}>
                 <Link id={styles.logo} to="/">
@@ -26,5 +26,5 @@ export default function Nav({ type = "default" }) {
                 ? <img className={styles.profile} alt="프로필" src={icProfile} />
                 : <Button className={styles[type]} onClick={() => navigate("/login")}>로그인</Button>}
         </div>
-    </header>);
+    </nav>);
 }
