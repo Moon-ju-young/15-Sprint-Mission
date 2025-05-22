@@ -75,7 +75,7 @@ function AddItem () {
                 <div className="tags">
                     {tags.map((element, index) => 
                         (<Tag key={element} onXClick={() => setTags((prev) => prev.filter((ele, ind) => (index !== ind)))}>
-                            {'#'+element}
+                            {element}
                         </Tag>))}
                 </div>
             </Input>
