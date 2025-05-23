@@ -14,7 +14,7 @@ function Dropdown({ className='', onClickEdit, onClickDelete, ...props }) {
         return () => document.removeEventListener("click", handleClickOutside);;
     }, []);
 
-    return (<button className={styles.dropdown+' '+className} ref={dropdownRef} onClick={() => setIsOpen((prev) => !prev)} {...props}>
+    return (<button type="button" className={styles.dropdown+' '+className} ref={dropdownRef} onClick={() => setIsOpen((prev) => !prev)} {...props}>
         <img src={icKebab} />
         {isOpen && <div className={styles.list}>
             <input type="button" value="수정하기" onClick={onClickEdit} />

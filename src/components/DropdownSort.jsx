@@ -19,6 +19,7 @@ function Dropdown({ state, setState, mode }) {
 
     return (
         <button 
+            type="button"
             className={`${styles.dropdown} ${(mode === "Mobile" && styles.small)}`} 
             onClick={() => setIsOpen((prev) => !prev)} 
             ref={dropdownRef}
