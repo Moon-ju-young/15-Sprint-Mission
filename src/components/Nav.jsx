@@ -1,4 +1,4 @@
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import Button from './Button';
 import logoBig from '../assets/logo.png';
 import logoSmall from '../assets/logo_text.png';
@@ -7,7 +7,9 @@ import styles from "./Nav.module.css";
 
 //type: default, tab, profile
 export default function Nav({ type = "default" }) {
-    return (<header className={styles.nav}>
+    const navigate = useNavigate(); 
+
+    return (<nav className={styles.nav}>
         <div className={styles.container}>
             <div className={styles.container}>
                 <Link id={styles.logo} to="/">
@@ -22,7 +24,7 @@ export default function Nav({ type = "default" }) {
             </div>
             {type === "profile" 
                 ? <img className={styles.profile} alt="프로필" src={icProfile} />
-                : <Button className={styles[type]} to="/login">로그인</Button>}
+                : <Button className={styles[type]} onClick={() => navigate("/login")}>로그인</Button>}
         </div>
-    </header>);
+    </nav>);
 }

@@ -13,11 +13,6 @@
         line-height: 32px;
     }
 
-    .head button {
-        width: 74px;
-        height: 42px;
-    }
-
     form {
         display: flex;
         flex-direction: column;
@@ -91,8 +86,15 @@
         height: 282px;
     }
 
+    form #price::-webkit-outer-spin-button,
+    form #price::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
     .tags {
         display: flex;
+        flex-wrap: wrap;
         gap: 12px;
         margin-top: 14px;
     }

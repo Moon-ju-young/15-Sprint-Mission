@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import AuthInput from "../components/AuthInput";
 import SimpleLogin from "../components/SimpleLogin";
@@ -7,6 +7,7 @@ import Button from "../components/Button";
 
 function Signup() {
   const [isValid, setIsValid] = useState(false);
+  const navigate = useNavigate();
     
   const onFocusout = (e) => {
     setTimeout( () => {
@@ -33,8 +34,10 @@ function Signup() {
       <AuthInput label="비밀번호" name="password" type="password" placeholder="비밀번호를 입력해주세요"
         emptyWrongMessage="비밀번호를 입력해주세요." invalidWrongMessage="비밀번호를 8자 이상 입력해주세요." />
       <AuthInput label="비밀번호 확인" name="password-check" type="password" placeholder="비밀번호를 다시 한 번 입력해주세요" />
-      <Button styleType="large" className="complete-btn" to="/login" disabled={!isValid} 
-        onClick={(e) => e.preventDefault()}>회원가입</Button>
+      <Button styleType="large" className="complete-btn" disabled={!isValid} 
+        onClick={(e) => {e.preventDefault(); navigate("/login");}}>
+        회원가입
+      </Button>
     </form>
     <SimpleLogin />
     <div className="guide-text">

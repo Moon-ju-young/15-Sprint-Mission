@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { Helmet } from "react-helmet-async";
 import Nav from "../components/Nav";
 import Button from "../components/Button";
 import Input from "../components/Input";
@@ -6,12 +7,17 @@ import Tag from "../components/Tag";
 import icPlus from "../assets/ic_plus.svg";
 import icX from "../assets/ic_X.svg";
 import "./AddItem.css";
-import { Helmet } from "react-helmet-async";
 
 function AddItem () {
     const [itemImage, setItemImage] = useState(null);
     const [isWrong, setIsWrong] = useState(false);
     const [isValid, setIsValid] = useState(false);
+    const [tags, setTags] = useState([]);
+    const formRef = useRef();
+
+    const checkIsValid = () => {
+        setIsValid((!!tags.length && formRef.current.checkValidity()));
+    }
 
     const handleChange = (e) => { 
         if (e.target.files && e.target.files[0]) {
@@ -24,12 +30,24 @@ function AddItem () {
         setItemImage(null);
     }
 
+    const handleKeyDown = (e) => {
+        if (e.key === "Enter") {
+            e.preventDefault();
+            if (e.target.value) {
+                setTags((prev) => [...prev, e.target.value]);
+                e.target.value = '';
+            }
+        }
+    }
+
+    useEffect(() => checkIsValid(), [tags]);
+
     return (<div id="additem">
         <Helmet>
             <title>중고마켓</title>
         </Helmet>
         <Nav type="profile" />
-        <form onChange={(e) => setIsValid(e.currentTarget.checkValidity())}>
+        <form ref={formRef} onChange={checkIsValid}>
             <div>
                 <div className="head">
                     <div className="title">상품 등록하기</div>
@@ -52,10 +70,13 @@ function AddItem () {
             </div>
             <Input label="상품명" name="item-name" placeholder="상품명을 입력해주세요" required />
             <Input label="상품 소개" name="item-introduction" type="textarea" placeholder="상품 소개를 입력해주세요" required />
-            <Input label="판매가격" name="price" placeholder="판매 가격을 입력해주세요" required />
-            <Input label="태그" name="tag" placeholder="태그를 입력해주세요" required>
+            <Input label="판매가격" name="price" type="number" placeholder="판매 가격을 입력해주세요" required />
+            <Input label="태그" name="tag" placeholder="태그를 입력해주세요" onKeyDown={handleKeyDown}>
                 <div className="tags">
-                    {["티셔츠", "상의"].map((e) => <Tag key={e}>{'#'+e}</Tag>)}
+                    {tags.map((element, index) => 
+                        (<Tag key={element} onXClick={() => setTags((prev) => prev.filter((ele, ind) => (index !== ind)))}>
+                            {element}
+                        </Tag>))}
                 </div>
             </Input>
         </form>

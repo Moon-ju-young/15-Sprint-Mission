@@ -32,7 +32,6 @@
 
     .banner button {
         width: 357px;
-        height: 56px;
         margin-top: 32px;
     }
 
@@ -248,9 +247,10 @@
         
         .banner button {
             width: 240px;
-            height: 48px;
             margin-top: 18px;
+            padding: 11px 0;
             font-size: 18px;
+            line-height: 26px;
         }
         
         .banner img {

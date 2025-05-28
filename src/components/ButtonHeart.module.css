@@ -1,0 +1,29 @@
+.btn {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 3px 11px;
+    border: 1px solid var(--gray200);
+    border-radius: 9999px;
+    background-color: white;
+    color: var(--gray500);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 26px;
+}
+
+.btn img.medium,
+.btn img.false {
+    display: none;
+}
+
+@media (max-width: 1199px) {
+    .btn img.medium {
+        display: block;
+    }
+
+    .btn img.large,
+    .btn img.false {
+        display: none;
+    }
+}

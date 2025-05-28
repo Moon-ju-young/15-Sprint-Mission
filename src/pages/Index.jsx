@@ -1,19 +1,21 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import Nav from '../components/Nav';
 import Button from '../components/Button';
-import home01 from '../assets/home_01.png';
-import home02 from '../assets/home_02.png';
-import home03 from '../assets/home_03.png';
-import homeBottom from '../assets/home_bottom.png';
-import homeTop from '../assets/home_top.png';
-import icFacebook from '../assets/ic_facebook.svg';
-import icTwitter from '../assets/ic_twitter.svg';
-import icYoutube from '../assets/ic_youtube.svg';
-import icInstagram from '../assets/ic_instagram.svg';
+import home01 from '../assets/landing/home_01.png';
+import home02 from '../assets/landing/home_02.png';
+import home03 from '../assets/landing/home_03.png';
+import homeBottom from '../assets/landing/home_bottom.png';
+import homeTop from '../assets/landing/home_top.png';
+import icFacebook from '../assets/sns/ic_facebook.svg';
+import icTwitter from '../assets/sns/ic_twitter.svg';
+import icYoutube from '../assets/sns/ic_youtube.svg';
+import icInstagram from '../assets/sns/ic_instagram.svg';
 import './Index.css';
 
 function Index() {
+    const navigate = useNavigate();
+
     return (<div id="index">
         <Helmet>
             <title>판다마켓</title>
@@ -23,7 +25,7 @@ function Index() {
             <div>
                 <div className="banner-explain">
                     <h2 className="heading">일상의 모든 물건을 <br className="enter" />거래해 보세요</h2>
-                    <Button styleType="large" to="/items">구경하러 가기</Button>
+                    <Button styleType="large" onClick={() => navigate("/items")}>구경하러 가기</Button>
                 </div>
                 <img src={homeTop} />
             </div>

@@ -1,14 +1,11 @@
-import { useEffect, useRef, useState } from 'react';
-import icArrowDown from '../assets/ic_arrow_down.svg';
-import icSort from '../assets/ic_sort.svg';
-import styles from './Dropdown.module.css';
+import { useEffect, useRef, useState } from "react";
+import icKebab from "../assets/ic_kebab.svg";
+import styles from "./Dropdown.module.css";
 
-const option = { recent: "최신순", favorite: "좋아요순", }
-
-function Dropdown({ state, setState, mode }) {
+function Dropdown({ className='', onClickEdit, onClickDelete, ...props }) {
     const [isOpen, setIsOpen] = useState(false);
     const dropdownRef = useRef(null);
-
+    
     useEffect(() => {
         const handleClickOutside = (e) => {
             if (dropdownRef.current && !dropdownRef.current.contains(e.target)) setIsOpen(false);
@@ -17,23 +14,13 @@ function Dropdown({ state, setState, mode }) {
         return () => document.removeEventListener("click", handleClickOutside);;
     }, []);
 
-    return (
-        <button 
-            className={`${styles.dropdown} ${(mode === "Mobile" && styles.small)}`} 
-            onClick={() => setIsOpen((prev) => !prev)} 
-            ref={dropdownRef}
-        >
-            { mode !== "Mobile" 
-                ? <> <div>{option[state]}</div> <img src={icArrowDown} /> </>
-                : <img src={icSort} /> }
-            { isOpen &&
-                <ul className={styles.dropdownList}>
-                    {Object.entries(option).map(([key, value]) => (<li key={key}>
-                        <input type="button" value={value} onClick={() => setState(key)} />
-                    </li>))}
-                </ul>}    
-        </button>
-    );
+    return (<button type="button" className={styles.dropdown+' '+className} ref={dropdownRef} onClick={() => setIsOpen((prev) => !prev)} {...props}>
+        <img src={icKebab} />
+        {isOpen && <div className={styles.list}>
+            <input type="button" value="수정하기" onClick={onClickEdit} />
+            <input type="button" value="삭제하기" onClick={onClickDelete}/>
+        </div>}
+    </button>);
 }
 
 export default Dropdown;

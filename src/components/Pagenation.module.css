@@ -18,20 +18,18 @@
     line-height: 26px;
 }
 
-.pagenation button:disabled img {
-    opacity: 0.3;
+.pagenation button img.active,
+.pagenation button:disabled img.inactive {
+    display: block;
+}
+
+.pagenation button img.inactive,
+.pagenation button:disabled img.active {
+    display: none;
 }
 
 .pagenation button.selected {
     border: none;
     background-color: var(--blue100);
     color: var(--gray50);
-}
-
-.pagenation button img {
-    display: block;
-}
-
-.pagenation button:first-child img {
-    transform: scaleX(-1);
 }
