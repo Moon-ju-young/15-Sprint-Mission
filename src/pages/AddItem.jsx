@@ -31,7 +31,7 @@ function AddItem () {
     }
 
     const handleKeyDown = (e) => {
-        if (e.key === "Enter") {
+        if (e.key === "Enter" && !e.nativeEvent.isComposing) {
             e.preventDefault();
             if (e.target.value.trim()) {
                 setTags((prev) => [...prev, e.target.value.trim()]);
