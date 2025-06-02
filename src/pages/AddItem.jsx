@@ -74,7 +74,7 @@ function AddItem () {
             <Input label="태그" name="tag" placeholder="태그를 입력해주세요" onKeyDown={handleKeyDown}>
                 <div className="tags">
                     {tags.map((element, index) => 
-                        (<Tag key={element} onXClick={() => setTags((prev) => prev.filter((ele, ind) => (index !== ind)))}>
+                        (<Tag key={index} onXClick={() => setTags((prev) => prev.filter((ele, ind) => (index !== ind)))}>
                             {element}
                         </Tag>))}
                 </div>
