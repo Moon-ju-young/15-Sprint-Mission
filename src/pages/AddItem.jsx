@@ -33,8 +33,8 @@ function AddItem () {
     const handleKeyDown = (e) => {
         if (e.key === "Enter") {
             e.preventDefault();
-            if (e.target.value) {
-                setTags((prev) => [...prev, e.target.value]);
+            if (e.target.value.trim()) {
+                setTags((prev) => [...prev, e.target.value.trim()]);
                 e.target.value = '';
             }
         }
