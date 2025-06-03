@@ -10,7 +10,7 @@ import { getProducts } from "../api/api";
 import icSearch from '../assets/ic_search.svg';
 import './Items.css';
 
-const PAGESIZE = {
+const PAGESIZE: { [size: string]: number; } = {
   PC: 10,
   Tablet: 6,
   Mobile: 4,
@@ -18,14 +18,14 @@ const PAGESIZE = {
 
 function Items() {
   const [mode, setMode] = useState(window.innerWidth < 768 ? "Mobile" : (window.innerWidth < 1200 ? "Tablet" : "PC"));
-  const [orderBy, setOrderBy] = useState("recent");
-  const [totalCount, setTotalCount] = useState(1);
-  const [page, setPage] = useState(1);
+  const [orderBy, setOrderBy] = useState<"favorite" | "recent">("recent");
+  const [totalCount, setTotalCount] = useState<number>(1);
+  const [page, setPage] = useState<number>(1);
   const [bestItems, setBestItems] = useState([]);
   const [totalItems, setTotalItems] = useState([]);
   const navigate = useNavigate();
 
-  const getItems = async (page, pageSize, orderBy) => {
+  const getItems = async (page: number, pageSize: number, orderBy: "favorite" | "recent") => {
     const { totalCount, list } = await getProducts({ page, pageSize, orderBy });
     setTotalCount(totalCount);
     return list;
