@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { type MouseEvent, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import AuthInput from "../components/AuthInput";
@@ -9,7 +9,7 @@ function Login() {
   const [isValid, setIsValid] = useState(false);
   const navigate = useNavigate();
   
-  const onFocusout = (e) => {
+  const onFocusout = () => {
     setTimeout( () => {
       const inputs = document.querySelectorAll("form input");
 
@@ -32,7 +32,7 @@ function Login() {
       <AuthInput label="비밀번호" name="password" type="password" placeholder="비밀번호를 입력해주세요"
         emptyWrongMessage="비밀번호를 입력해주세요." invalidWrongMessage="비밀번호를 8자 이상 입력해주세요." />
       <Button styleType="large" className="complete-btn" disabled={!isValid}
-        onClick={(e) => {e.preventDefault(); navigate("/items");}}>
+        onClick={(e: MouseEvent<HTMLButtonElement>) => {e.preventDefault(); navigate("/items");}}>
         로그인
       </Button>
     </form>
