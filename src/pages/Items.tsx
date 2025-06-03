@@ -18,7 +18,9 @@ const PAGESIZE: { [size: string]: number; } = {
 }
 
 function Items() {
-  const [mode, setMode] = useState(window.innerWidth < 768 ? "Mobile" : (window.innerWidth < 1200 ? "Tablet" : "PC"));
+  const [mode, setMode] = useState<"Mobile" | "Tablet" | "PC">(
+    window.innerWidth < 768 ? "Mobile" : (window.innerWidth < 1200 ? "Tablet" : "PC")
+  );
   const [orderBy, setOrderBy] = useState<"favorite" | "recent">("recent");
   const [totalCount, setTotalCount] = useState<number>(1);
   const [page, setPage] = useState<number>(1);
