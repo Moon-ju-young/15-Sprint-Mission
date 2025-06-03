@@ -5,8 +5,7 @@ import logoSmall from '../assets/logo_text.png';
 import icProfile from '../assets/ic_profile.svg';
 import styles from "./Nav.module.css";
 
-//type: default, tab, profile
-export default function Nav({ type = "default" }) {
+export default function Nav({ type = "default" }: { type: "default" | "tab" | "profile" }) {
     const navigate = useNavigate(); 
 
     return (<nav className={styles.nav}>
@@ -18,8 +17,8 @@ export default function Nav({ type = "default" }) {
                 </Link>
                 {type === "default" ||
                     <div className={styles.container+' '+styles.menu}>
-                        <NavLink>자유게시판</NavLink>
-                        <NavLink className={styles.selected}>중고마켓</NavLink>
+                        <NavLink to="">자유게시판</NavLink>
+                        <NavLink className={styles.selected} to="">중고마켓</NavLink>
                     </div>}
             </div>
             {type === "profile" 
