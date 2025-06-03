@@ -6,6 +6,7 @@ import ItemList from '../components/ItemList';
 import Button from '../components/Button';
 import Dropdown from '../components/DropdownSort';
 import Pagenation from '../components/Pagenation';
+import type { Product } from '../api/apiTypes';
 import { getProducts } from "../api/api";
 import icSearch from '../assets/ic_search.svg';
 import './Items.css';
@@ -21,8 +22,8 @@ function Items() {
   const [orderBy, setOrderBy] = useState<"favorite" | "recent">("recent");
   const [totalCount, setTotalCount] = useState<number>(1);
   const [page, setPage] = useState<number>(1);
-  const [bestItems, setBestItems] = useState([]);
-  const [totalItems, setTotalItems] = useState([]);
+  const [bestItems, setBestItems] = useState<Product[]>([]);
+  const [totalItems, setTotalItems] = useState<Product[]>([]);
   const navigate = useNavigate();
 
   const getItems = async (page: number, pageSize: number, orderBy: "favorite" | "recent") => {
