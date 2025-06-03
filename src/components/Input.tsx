@@ -3,18 +3,18 @@ import styles from "./Input.module.css";
 
 type Props = {
     label?: string;
-    name: string;
+    name?: string;
     className?: string;
     inputClassName?: string;
     children?: ReactNode;
 };
 
 type InputProps = Props & {
-    type: Exclude<string, 'textarea'>;
+    type?: Exclude<string, 'textarea'>;
 } & InputHTMLAttributes<HTMLInputElement>;
 
 type TextareaProps = Props & {
-    type: 'textarea';
+    type?: 'textarea';
 } & TextareaHTMLAttributes<HTMLTextAreaElement>;
 
 function Input ({ label, name, className, inputClassName, type="text", children, ...props }: InputProps | TextareaProps) {
