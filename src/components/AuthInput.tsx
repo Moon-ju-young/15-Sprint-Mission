@@ -35,7 +35,7 @@ function PasswordInput ({ name, label, className='', onFocusout, valid, wrongMes
     }
 
     return (
-        <Input required name={name}
+        <Input required name={name} label={label}
             className={"password "+className}
             type={isVisible ? "text" : "password"} 
             onChange={passwordMatch}
