@@ -22,6 +22,7 @@ function AddItem () {
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => { 
         if (e.target.files && e.target.files[0]) {
             setItemImage(URL.createObjectURL(e.target.files[0]));
+            e.target.value = '';
         }
     }
 
