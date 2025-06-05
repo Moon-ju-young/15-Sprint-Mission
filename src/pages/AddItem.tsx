@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type ChangeEvent, type KeyboardEvent } from "react";
 import { Helmet } from "react-helmet-async";
 import Nav from "../components/Nav";
 import Button from "../components/Button";
@@ -9,19 +9,20 @@ import icX from "../assets/ic_X.svg";
 import "./AddItem.css";
 
 function AddItem () {
-    const [itemImage, setItemImage] = useState(null);
+    const [itemImage, setItemImage] = useState<string | null>(null);
     const [isWrong, setIsWrong] = useState(false);
     const [isValid, setIsValid] = useState(false);
-    const [tags, setTags] = useState([]);
-    const formRef = useRef();
+    const [tags, setTags] = useState<string[]>([]);
+    const formRef = useRef<HTMLFormElement>(null);
 
     const checkIsValid = () => {
-        setIsValid((!!tags.length && formRef.current.checkValidity()));
+        setIsValid(!!(tags.length && formRef.current?.checkValidity()));
     }
 
-    const handleChange = (e) => { 
+    const handleChange = (e: ChangeEvent<HTMLInputElement>) => { 
         if (e.target.files && e.target.files[0]) {
             setItemImage(URL.createObjectURL(e.target.files[0]));
+            e.target.value = '';
         }
     }
 
@@ -30,12 +31,12 @@ function AddItem () {
         setItemImage(null);
     }
 
-    const handleKeyDown = (e) => {
-        if (e.key === "Enter") {
+    const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
+        if (e.key === "Enter" && !e.nativeEvent.isComposing) {
             e.preventDefault();
-            if (e.target.value) {
-                setTags((prev) => [...prev, e.target.value]);
-                e.target.value = '';
+            if (e.currentTarget.value.trim()) {
+                setTags((prev) => [...prev, e.currentTarget.value.trim()]);
+                e.currentTarget.value = '';
             }
         }
     }
@@ -64,7 +65,7 @@ function AddItem () {
                                 <img src={icX} />
                             </button>
                         </section>}
-                    <input id="file" name="file" type="file" accept="image/*" onChange={handleChange} disabled={itemImage} />
+                    <input id="file" name="file" type="file" accept="image/*" onChange={handleChange} disabled={!!itemImage} />
                 </div>
                 {isWrong && <div className="wrong-message">*이미지 등록은 최대 1개까지 가능합니다.</div>}
             </div>
@@ -73,10 +74,11 @@ function AddItem () {
             <Input label="판매가격" name="price" type="number" placeholder="판매 가격을 입력해주세요" required />
             <Input label="태그" name="tag" placeholder="태그를 입력해주세요" onKeyDown={handleKeyDown}>
                 <div className="tags">
-                    {tags.map((element, index) => 
-                        (<Tag key={element} onXClick={() => setTags((prev) => prev.filter((ele, ind) => (index !== ind)))}>
+                    {tags.map((element, index) => (
+                        <Tag key={index} onXClick={() => setTags((prev) => prev.filter((ele, ind) => (index !== ind)))}>
                             {element}
-                        </Tag>))}
+                        </Tag>
+                    ))}
                 </div>
             </Input>
         </form>

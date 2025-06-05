@@ -1,17 +1,28 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, type ButtonHTMLAttributes, type Dispatch, type SetStateAction } from 'react';
 import icArrowDown from '../assets/ic_arrow_down.svg';
 import icSort from '../assets/ic_sort.svg';
 import styles from './DropdownSort.module.css';
 
-const option = { recent: "최신순", favorite: "좋아요순", }
+const option: { [id:string]: string } = { 
+    recent: "최신순", 
+    favorite: "좋아요순", 
+}
 
-function Dropdown({ state, setState, mode }) {
+interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
+    state: any;
+    setState: Dispatch<SetStateAction<any>>;
+    mode: string;
+}
+
+function Dropdown({ state, setState, mode }: Props) {
     const [isOpen, setIsOpen] = useState(false);
-    const dropdownRef = useRef(null);
+    const dropdownRef = useRef<HTMLButtonElement>(null);
 
     useEffect(() => {
-        const handleClickOutside = (e) => {
-            if (dropdownRef.current && !dropdownRef.current.contains(e.target)) setIsOpen(false);
+        const handleClickOutside = (e: MouseEvent) => {
+            if (dropdownRef.current && e.target instanceof Node && !dropdownRef.current.contains(e.target)) {
+                setIsOpen(false);
+            }
         };
         document.addEventListener("click", handleClickOutside);
         return () => document.removeEventListener("click", handleClickOutside);;

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, type ChangeEvent, type MouseEvent } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import Nav from "../components/Nav";
 import Dropdown from "../components/Dropdown";
@@ -6,6 +6,7 @@ import Tag from "../components/Tag";
 import ButtonHeart from "../components/ButtonHeart";
 import Button from "../components/Button";
 import Input from "../components/Input";
+import type { Comment, Product } from "../api/apiTypes";
 import { getProduct, getProductComments } from "../api/api";
 import getDurationString from "../utils/getDurationString";
 import imgInquiryEmpty from "../assets/inquiry_empty.png";
@@ -16,24 +17,33 @@ import "./ItemProduct.css";
 function ItemProduct() {
   const navigate = useNavigate();
   const { productId } = useParams();
-  const [data, setData] = useState();
-  const [comments, setComments] = useState([]);
+  const [data, setData] = useState<Product>();
+  const [comments, setComments] = useState<Comment[]>([]);
   const [disabled, setDisabled] = useState(true);
-  const [editingComment, setEditingComment] = useState(null);
+  const [editingComment, setEditingComment] = useState<number | null>(null);
   const [disabledComment, setDisabledComment] = useState(false);
 
-  const handleChange = (e) => { setDisabled(!e.currentTarget.checkValidity()); };
-  const handleChangeComment = (e) => { setDisabledComment(!e.currentTarget.checkValidity()); };
+  const handleChange = (e: ChangeEvent<HTMLFormElement>) => { 
+    setDisabled(!e.currentTarget.checkValidity()); 
+  };
+
+  const handleChangeComment = (e: ChangeEvent<HTMLFormElement>) => { 
+    setDisabledComment(!e.currentTarget.checkValidity()); 
+  };
   
   useEffect(() => {
-    (async () => setData(await getProduct({ productId })))();
+    if (productId) {
+      (async () => setData(await getProduct({ productId })))();
+    }
   }, []);
 
   useEffect(() => {
-    (async () => {
-      const { list } = await getProductComments({ productId, limit: 9999 });
-      setComments(list);
-    })();
+    if (productId) {
+      (async () => {
+        const { list } = await getProductComments({ productId, limit: 9999 });
+        setComments(list);
+      })();
+    }
   }, []);
 
   return (<div id="item-product">
@@ -52,7 +62,7 @@ function ItemProduct() {
             <div className="description">{data?.description}</div>
             <h6>상품 태그</h6>
             <div className="tags">
-              {data?.tags?.map((element) => <Tag key={element}>{element}</Tag>)}
+              {data?.tags?.map((element: string) => <Tag key={element}>{element}</Tag>)}
             </div>
           </div>
           <div className="addition">
@@ -61,7 +71,7 @@ function ItemProduct() {
               <div>
                 <div className="nickname">{data?.ownerNickname}</div>
                 <div className="date">
-                  {(new Date(data?.createdAt).toLocaleDateString("ko-KR")).slice(0,-1)}
+                  {data?.createdAt && (new Date(data.createdAt).toLocaleDateString("ko-KR")).slice(0,-1)}
                 </div>
               </div>
             </div>
@@ -101,9 +111,9 @@ function ItemProduct() {
                         취소
                       </button>
                       <Button type="button" disabled={disabledComment} 
-                        onClick={(e) => { 
+                        onClick={(e: MouseEvent<HTMLButtonElement>) => { 
                           setEditingComment(null); 
-                          comment.content = e.target.closest("form").querySelector("textarea").value; 
+                          comment.content = ((e.currentTarget.closest("form") as HTMLFormElement).querySelector("textarea")?.value ?? ''); 
                         }}
                       >
                         수정 완료

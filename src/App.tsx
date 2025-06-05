@@ -1,12 +1,12 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
-import Index from './pages/Index.jsx';
-import Items from './pages/Items.jsx';
-import ItemProduct from './pages/ItemProduct.jsx';
-import AddItem from './pages/AddItem.jsx';
-import Auth from './pages/Auth.jsx';
-import Login from './pages/Login.jsx';
-import Signup from './pages/Signup.jsx';
+import Index from './pages/Index';
+import Items from './pages/Items';
+import ItemProduct from './pages/ItemProduct';
+import AddItem from './pages/AddItem';
+import Auth from './pages/Auth';
+import Login from './pages/Login';
+import Signup from './pages/Signup';
 import './reset.css';
 import './color.css';
 

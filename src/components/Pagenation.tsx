@@ -1,11 +1,16 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, type Dispatch, type SetStateAction } from "react";
 import icArrowLeftActive from "../assets/arrow/ic_arrow_left_active.svg";
 import icArrowLeftInactive from "../assets/arrow/ic_arrow_left_inactive.svg";
 import icArrowRightActive from "../assets/arrow/ic_arrow_right_active.svg";
 import icArrowRightInactive from "../assets/arrow/ic_arrow_right_inactive.svg";
 import styles from "./Pagenation.module.css";
 
-export default function Pagenation({ page, setPage, pageSize, totalCount }) {
+export default function Pagenation({ page, setPage, pageSize, totalCount }: {
+    page: number;
+    setPage: Dispatch<SetStateAction<number>>;
+    pageSize: number;
+    totalCount: number;
+}) {
     const [maxPage, setMaxPage] = useState(1);
     const [list, setList] = useState([1]);
 
