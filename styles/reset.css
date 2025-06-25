@@ -4,7 +4,6 @@
   box-sizing: border-box;
   font-family: inherit;
 }
-
 html,
 body,
 div,
@@ -54,6 +53,7 @@ dd,
 ol,
 ul,
 li,
+button,
 fieldset,
 form,
 label,
@@ -126,4 +126,9 @@ q:after {
 table {
   border-collapse: collapse;
   border-spacing: 0;
+}
+button {
+  cursor: pointer;
+  background: none;
+  color: initial;
 }
