@@ -6,17 +6,16 @@ interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   mode: "add" | "delete" | "edit";
 }
 
+const CONTENT: Record<Props["mode"], string> = {
+  add: "추가하기",
+  delete: "삭제하기",
+  edit: "수정 완료",
+};
+
 export default function Btn({ size = "large", mode, ...props }: Props) {
   return (
     <button className={`${styles.btn} ${styles[size]}`} {...props}>
-      <div className={styles.content}>
-        {size === "large" &&
-          (mode === "add"
-            ? "추가하기"
-            : mode === "delete"
-            ? "삭제하기"
-            : "수정 완료")}
-      </div>
+      <div className={styles.content}>{size === "large" && CONTENT[mode]}</div>
       <div className={styles.shadow}></div>
     </button>
   );
