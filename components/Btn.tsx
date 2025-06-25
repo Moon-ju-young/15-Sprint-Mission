@@ -1,6 +1,10 @@
-export default function Btn() {
+import { ButtonHTMLAttributes } from "react";
+
+export default function Btn({
+  ...props
+}: ButtonHTMLAttributes<HTMLButtonElement>) {
   return (
-    <button>
+    <button {...props}>
       <div></div>
       <div></div>
     </button>
