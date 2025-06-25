@@ -15,7 +15,9 @@ const CONTENT: Record<Props["mode"], string> = {
 export default function Btn({ size = "large", mode, ...props }: Props) {
   return (
     <button className={`${styles.btn} ${styles[size]}`} {...props}>
-      <div className={styles.content}>{size === "large" && CONTENT[mode]}</div>
+      <div className={`${styles.content} ${styles[mode]}`}>
+        {size === "large" && CONTENT[mode]}
+      </div>
       <div className={styles.shadow}></div>
     </button>
   );
