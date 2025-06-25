@@ -1,11 +1,13 @@
 import { ButtonHTMLAttributes } from "react";
 import styles from "./Btn.module.css";
 
-interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {}
+interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
+  size?: "large" | "small";
+}
 
-export default function Btn({ children, ...props }: Props) {
+export default function Btn({ size = "large", children, ...props }: Props) {
   return (
-    <button className={styles.btn} {...props}>
+    <button className={`${styles.btn} ${styles[size]}`} {...props}>
       <div className={styles.content}>{children}</div>
       <div className={styles.shadow}></div>
     </button>
