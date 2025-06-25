@@ -1,3 +1,8 @@
 export default function Btn() {
-  return;
+  return (
+    <button>
+      <div></div>
+      <div></div>
+    </button>
+  );
 }
