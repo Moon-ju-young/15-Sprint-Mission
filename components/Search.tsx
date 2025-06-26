@@ -1,5 +1,10 @@
 import styles from "./Search.module.css";
 
 export default function Search() {
-  return;
+  return (
+    <label className={styles.search}>
+      <div />
+      <input />
+    </label>
+  );
 }
