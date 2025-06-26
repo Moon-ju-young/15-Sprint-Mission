@@ -1,0 +1,55 @@
+button.btn {
+  position: relative;
+  height: 56px;
+}
+
+button.btn.large {
+  width: 168px;
+}
+
+button.btn.small {
+  width: 56px;
+}
+
+button.btn div {
+  position: absolute;
+  height: 52px;
+  border: 2px solid var(--slate900);
+  border-radius: 24px;
+}
+
+button.btn.large div {
+  width: 164.35px;
+}
+
+button.btn.small div {
+  width: 54.78px;
+}
+
+button.btn div.content {
+  top: 0;
+  left: 0;
+  display: flex;
+  background-color: var(--slate200);
+  color: var(--slate900);
+  line-height: 18px;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+button.btn.large div.content {
+  align-items: center;
+  gap: 4px;
+  justify-content: center;
+}
+
+button.btn.small div.content {
+  padding: 16px;
+}
+
+button.btn div.shadow {
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+  background-color: var(--slate900);
+}
