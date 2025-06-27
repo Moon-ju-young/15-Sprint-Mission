@@ -30,10 +30,10 @@ export type PostItem = {
 };
 
 export type PatchItem = {
-  name: string;
-  memo: string;
-  imageUrl: string;
-  isCompleted: boolean;
+  name?: string;
+  memo?: string;
+  imageUrl?: string;
+  isCompleted?: boolean;
 };
 
 export async function getItems() {
