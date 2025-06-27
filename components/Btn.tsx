@@ -32,7 +32,10 @@ export default function Btn({ size = "large", mode, ...props }: Props) {
   return (
     <button className={`${styles.btn} ${styles[size]}`} {...props}>
       <div className={`${styles.content} ${styles[mode]}`}>
-        <Image height={16} {...img} />
+        <Image height={16} id={styles.dark} {...img} />
+        {mode === "add" && (
+          <Image height={16} id={styles.light} alt="plus" src={ic_plus_white} />
+        )}
         {size === "large" && CONTENT[mode]}
       </div>
       <div className={styles.shadow}></div>
