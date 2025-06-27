@@ -17,7 +17,12 @@ const CONTENT: Record<Props["mode"], string> = {
   edit: "수정 완료",
 };
 
-export default function Btn({ size = "large", mode, ...props }: Props) {
+export default function Btn({
+  className = "",
+  size = "large",
+  mode,
+  ...props
+}: Props) {
   const img = useMemo(() => {
     switch (mode) {
       case "add":
@@ -30,7 +35,7 @@ export default function Btn({ size = "large", mode, ...props }: Props) {
   }, [mode]);
 
   return (
-    <button className={`${styles.btn} ${styles[size]}`} {...props}>
+    <button className={`${styles.btn} ${styles[size]} ${className}`} {...props}>
       <div className={styles.shadow}></div>
       <div className={`${styles.content} ${styles[mode]}`}>
         <Image height={16} id={styles.dark} {...img} />
