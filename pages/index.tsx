@@ -15,6 +15,7 @@ import todo from "@/assets/images/todo.png";
 import done from "@/assets/images/done.png";
 import empty_todo from "@/assets/images/empty_todo.png";
 import empty_done from "@/assets/images/empty_done.png";
+import styles from "@/styles/index.module.css";
 
 export async function getServerSideProps() {
   const items = await getItems();
@@ -56,7 +57,7 @@ export default function Home({
   };
 
   return (
-    <div id="home">
+    <div className={styles.home}>
       <Gnb />
       <main>
         <form onSubmit={handleSubmit}>
@@ -84,7 +85,7 @@ export default function Home({
                   {item.name}
                 </CheckList>
               )) && (
-              <div className="empty">
+              <div className={styles.empty}>
                 <Image alt="empty to do" src={empty_todo} />
                 할 일이 없어요.
                 <br />
@@ -112,7 +113,7 @@ export default function Home({
                   {item.name}
                 </CheckList>
               )) && (
-              <div className="empty">
+              <div className={styles.empty}>
                 <Image alt="empty done" src={empty_done} />
                 아직 다 한 일이 없어요.
                 <br />
