@@ -51,7 +51,9 @@ export default function Home({
             {items
               .filter((item) => !item.isCompleted)
               .map((item) => (
-                <CheckList isChecked={false}>{item.name}</CheckList>
+                <CheckList key={item.id} isChecked={false}>
+                  {item.name}
+                </CheckList>
               ))}
           </section>
           <section>
@@ -59,7 +61,9 @@ export default function Home({
             {items
               .filter((item) => item.isCompleted)
               .map((item) => (
-                <CheckList isChecked={false}>{item.name}</CheckList>
+                <CheckList key={item.id} isChecked={false}>
+                  {item.name}
+                </CheckList>
               ))}
           </section>
         </div>
