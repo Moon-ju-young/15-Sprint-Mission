@@ -37,6 +37,20 @@ button.btn div.content {
   font-weight: 700;
 }
 
+button.btn div.content.delete {
+  background-color: var(--rose500);
+  color: white;
+}
+
+button.btn:hover div.content.add {
+  background-color: var(--violet600);
+  color: white;
+}
+
+button.btn:hover div.content.edit {
+  background-color: var(--lime300);
+}
+
 button.btn.large div.content {
   align-items: center;
   gap: 4px;
@@ -45,6 +59,15 @@ button.btn.large div.content {
 
 button.btn.small div.content {
   padding: 16px;
+}
+
+button.btn div.content.add img#light,
+button.btn:hover div.content.add img#dark {
+  display: none;
+}
+
+button.btn:hover div.content.add img#light {
+  display: initial;
 }
 
 button.btn div.shadow {
