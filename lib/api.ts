@@ -4,11 +4,13 @@ const api = axios.create({
   baseURL: process.env.NEXT_PUBLIC_BASE_URL,
 });
 
-export type ResponseItems = {
+export type SimpleItem = {
   isCompleted: boolean;
   name: string;
   id: number;
-}[];
+};
+
+export type ResponseSimpleItems = SimpleItem[];
 
 export type ResponseItem = {
   isCompleted: boolean;
@@ -35,7 +37,7 @@ export type PatchItem = {
 };
 
 export async function getItems() {
-  const response = await api.get<ResponseItems>("/items");
+  const response = await api.get<ResponseSimpleItems>("/items");
   return response.data;
 }
 
