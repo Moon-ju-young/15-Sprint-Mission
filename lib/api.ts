@@ -10,6 +10,15 @@ type ResponseItems = {
   id: number;
 }[];
 
+type ResponseItem = {
+  isCompleted: boolean;
+  imageUrl: string;
+  memo: string;
+  name: string;
+  tenantId: string;
+  id: number;
+};
+
 export async function getItems(): Promise<ResponseItems> {
   const response = await api.get<ResponseItems>("/items");
   return response.data;
