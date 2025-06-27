@@ -31,6 +31,7 @@ export default function Btn({ size = "large", mode, ...props }: Props) {
 
   return (
     <button className={`${styles.btn} ${styles[size]}`} {...props}>
+      <div className={styles.shadow}></div>
       <div className={`${styles.content} ${styles[mode]}`}>
         <Image height={16} id={styles.dark} {...img} />
         {mode === "add" && (
@@ -38,7 +39,6 @@ export default function Btn({ size = "large", mode, ...props }: Props) {
         )}
         {size === "large" && CONTENT[mode]}
       </div>
-      <div className={styles.shadow}></div>
     </button>
   );
 }
