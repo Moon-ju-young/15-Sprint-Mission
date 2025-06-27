@@ -19,7 +19,12 @@ type ResponseItem = {
   id: number;
 };
 
-export async function getItems(): Promise<ResponseItems> {
+export async function getItems() {
   const response = await api.get<ResponseItems>("/items");
+  return response.data;
+}
+
+export async function getItem(itemId: number) {
+  const response = await api.get<ResponseItem>("/items/" + itemId);
   return response.data;
 }
