@@ -90,7 +90,7 @@ export default function Home({
               .map((item) => (
                 <CheckList
                   key={item.id}
-                  isChecked={false}
+                  isChecked={true}
                   onButtonClick={async (e) => {
                     e.currentTarget.disabled = true;
                     try {
