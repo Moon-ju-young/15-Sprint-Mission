@@ -1,11 +1,11 @@
-import { InputHTMLAttributes } from "react";
+import { InputHTMLAttributes, Ref } from "react";
 import styles from "./Search.module.css";
 
-export default function Search({
-  className = "",
-  style,
-  ...props
-}: InputHTMLAttributes<HTMLInputElement>) {
+interface Props extends InputHTMLAttributes<HTMLInputElement> {
+  ref?: Ref<HTMLInputElement>;
+}
+
+export default function Search({ className = "", style, ...props }: Props) {
   return (
     <label className={`${styles.search} ${className}`} style={style}>
       <div />
