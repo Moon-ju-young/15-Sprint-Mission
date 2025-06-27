@@ -44,8 +44,8 @@ export async function getItem(itemId: number) {
   return response.data;
 }
 
-export async function postItem(itemId: number, body: PostItem) {
-  const response = await api.post<ResponseItem>("/items/" + itemId, body);
+export async function postItem(body: PostItem) {
+  const response = await api.post<ResponseItem>("/items", body);
   return response.data;
 }
 
