@@ -70,7 +70,7 @@ export default function Home({
         </form>
         <div>
           <section>
-            <Image alt="to do" src={todo} />
+            <Image height={36} alt="to do" src={todo} />
             {items
               .filter((item) => !item.isCompleted)
               .map((item) => (
@@ -90,7 +90,7 @@ export default function Home({
                 </CheckList>
               )) && (
               <div className={styles.empty}>
-                <Image alt="empty to do" src={empty_todo} />
+                <Image height={240} alt="empty to do" src={empty_todo} />
                 할 일이 없어요.
                 <br />
                 TODO를 새롭게 추가해주세요!
@@ -98,7 +98,7 @@ export default function Home({
             )}
           </section>
           <section>
-            <Image alt="done" src={done} />
+            <Image height={36} alt="done" src={done} />
             {items
               .filter((item) => item.isCompleted)
               .map((item) => (
@@ -118,7 +118,7 @@ export default function Home({
                 </CheckList>
               )) && (
               <div className={styles.empty}>
-                <Image alt="empty done" src={empty_done} />
+                <Image height={240} alt="empty done" src={empty_done} />
                 아직 다 한 일이 없어요.
                 <br />
                 해야 할 일을 체크해보세요!
