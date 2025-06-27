@@ -4,13 +4,13 @@ const api = axios.create({
   baseURL: process.env.NEXT_PUBLIC_BASE_URL,
 });
 
-type ResponseItems = {
+export type ResponseItems = {
   isCompleted: boolean;
   name: string;
   id: number;
 }[];
 
-type ResponseItem = {
+export type ResponseItem = {
   isCompleted: boolean;
   imageUrl: string;
   memo: string;
@@ -19,15 +19,15 @@ type ResponseItem = {
   id: number;
 };
 
-type ResponseDelete = {
+export type ResponseDelete = {
   message: string;
 };
 
-type PostItem = {
+export type PostItem = {
   name: string;
 };
 
-type PatchItem = {
+export type PatchItem = {
   name: string;
   memo: string;
   imageUrl: string;
