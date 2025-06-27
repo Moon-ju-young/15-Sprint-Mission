@@ -14,8 +14,8 @@ export type ResponseSimpleItems = SimpleItem[];
 
 export type ResponseItem = {
   isCompleted: boolean;
-  imageUrl: string;
-  memo: string;
+  imageUrl: string | null;
+  memo: string | null;
   name: string;
   tenantId: string;
   id: number;
