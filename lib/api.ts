@@ -19,6 +19,10 @@ type ResponseItem = {
   id: number;
 };
 
+type PostItem = {
+  name: string;
+};
+
 export async function getItems() {
   const response = await api.get<ResponseItems>("/items");
   return response.data;
@@ -26,5 +30,10 @@ export async function getItems() {
 
 export async function getItem(itemId: number) {
   const response = await api.get<ResponseItem>("/items/" + itemId);
+  return response.data;
+}
+
+export async function postItem(itemId: number, body: PostItem) {
+  const response = await api.post<ResponseItem>("/items/" + itemId, body);
   return response.data;
 }
