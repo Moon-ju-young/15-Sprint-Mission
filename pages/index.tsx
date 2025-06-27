@@ -4,7 +4,13 @@ import Btn from "@/components/Btn";
 import CheckList from "@/components/CheckList";
 import Gnb from "@/components/Gnb";
 import Search from "@/components/Search";
-import { getItems, postItem, ResponseItems } from "@/lib/api";
+import {
+  getItems,
+  patchItem,
+  postItem,
+  ResponseSimpleItems,
+  SimpleItem,
+} from "@/lib/api";
 import todo from "@/assets/images/todo.png";
 import done from "@/assets/images/done.png";
 
@@ -17,7 +23,7 @@ export async function getServerSideProps() {
 export default function Home({
   items: initialItems,
 }: {
-  items: ResponseItems;
+  items: ResponseSimpleItems;
 }) {
   const [items, setItems] = useState(initialItems);
   const [disabled, setDisabled] = useState(false);
@@ -37,6 +43,16 @@ export default function Home({
     }
   };
 
+  const changeIsCompleted = async (item: SimpleItem) => {
+    await patchItem(item.id, { isCompleted: !item.isCompleted });
+    setItems((prev) =>
+      prev.map((p) => {
+        if (p.id !== item.id) return p;
+        return { ...p, isCompleted: !p.isCompleted };
+      })
+    );
+  };
+
   return (
     <div id="home">
       <Gnb />
@@ -51,7 +67,18 @@ export default function Home({
             {items
               .filter((item) => !item.isCompleted)
               .map((item) => (
-                <CheckList key={item.id} isChecked={false}>
+                <CheckList
+                  key={item.id}
+                  isChecked={false}
+                  onButtonClick={async (e) => {
+                    e.currentTarget.disabled = true;
+                    try {
+                      await changeIsCompleted(item);
+                    } catch {
+                      e.currentTarget.disabled = false;
+                    }
+                  }}
+                >
                   {item.name}
                 </CheckList>
               ))}
@@ -61,7 +88,18 @@ export default function Home({
             {items
               .filter((item) => item.isCompleted)
               .map((item) => (
-                <CheckList key={item.id} isChecked={false}>
+                <CheckList
+                  key={item.id}
+                  isChecked={false}
+                  onButtonClick={async (e) => {
+                    e.currentTarget.disabled = true;
+                    try {
+                      await changeIsCompleted(item);
+                    } catch {
+                      e.currentTarget.disabled = false;
+                    }
+                  }}
+                >
                   {item.name}
                 </CheckList>
               ))}
