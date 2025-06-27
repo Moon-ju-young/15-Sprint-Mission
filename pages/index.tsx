@@ -1,8 +1,12 @@
 import { FormEvent, useRef, useState } from "react";
+import Image from "next/image";
 import Btn from "@/components/Btn";
+import CheckList from "@/components/CheckList";
 import Gnb from "@/components/Gnb";
 import Search from "@/components/Search";
 import { getItems, postItem, ResponseItems } from "@/lib/api";
+import todo from "@/assets/images/todo.png";
+import done from "@/assets/images/done.png";
 
 export async function getServerSideProps() {
   const items = await getItems();
@@ -40,6 +44,24 @@ export default function Home({
           <Search disabled={disabled} ref={searchRef} />
           <Btn mode="add" disabled={disabled} />
         </form>
+        <div>
+          <section>
+            <Image alt="to do" src={todo} />
+            {items
+              .filter((item) => !item.isCompleted)
+              .map((item) => (
+                <CheckList isChecked={false}>{item.name}</CheckList>
+              ))}
+          </section>
+          <section>
+            <Image alt="done" src={done} />
+            {items
+              .filter((item) => item.isCompleted)
+              .map((item) => (
+                <CheckList isChecked={false}>{item.name}</CheckList>
+              ))}
+          </section>
+        </div>
       </main>
     </div>
   );
