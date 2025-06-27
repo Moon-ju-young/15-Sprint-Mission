@@ -28,7 +28,8 @@ export default function Home({
     if (searchRef.current?.value) {
       try {
         setDisabled(true);
-        await postItem({ name: searchRef.current.value });
+        const item = await postItem({ name: searchRef.current.value });
+        setItems((prev) => [...prev, item]);
         searchRef.current.value = "";
       } finally {
         setDisabled(false);
