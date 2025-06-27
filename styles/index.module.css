@@ -6,4 +6,14 @@
     max-width: 1200px;
     margin: 24px auto;
   }
+
+  main > form {
+    display: flex;
+    gap: 16px;
+    width: 100%;
+  }
+
+  main > form .search {
+    flex: 1;
+  }
 }

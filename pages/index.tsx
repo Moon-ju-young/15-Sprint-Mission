@@ -61,7 +61,11 @@ export default function Home({
       <Gnb />
       <main>
         <form onSubmit={handleSubmit}>
-          <Search disabled={disabled} ref={searchRef} />
+          <Search
+            className={styles.search}
+            disabled={disabled}
+            ref={searchRef}
+          />
           <Btn mode="add" disabled={disabled} />
         </form>
         <div>
