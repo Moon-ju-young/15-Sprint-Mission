@@ -38,9 +38,15 @@ export default function Btn({
     <button className={`${styles.btn} ${styles[size]} ${className}`} {...props}>
       <div className={styles.shadow}></div>
       <div className={`${styles.content} ${styles[mode]}`}>
-        <Image height={16} id={styles.dark} {...img} />
+        <Image height={16} width={16} id={styles.dark} {...img} />
         {mode === "add" && (
-          <Image height={16} id={styles.light} alt="plus" src={ic_plus_white} />
+          <Image
+            height={16}
+            width={16}
+            id={styles.light}
+            alt="plus"
+            src={ic_plus_white}
+          />
         )}
         {size === "large" && CONTENT[mode]}
       </div>
