@@ -19,6 +19,10 @@ type ResponseItem = {
   id: number;
 };
 
+type ResponseDelete = {
+  message: string;
+};
+
 type PostItem = {
   name: string;
 };
@@ -47,5 +51,10 @@ export async function postItem(itemId: number, body: PostItem) {
 
 export async function patchItem(itemId: number, body: PatchItem) {
   const response = await api.patch<ResponseItem>("/items/" + itemId, body);
+  return response.data;
+}
+
+export async function deleteItem(itemId: number) {
+  const response = await api.delete<ResponseDelete>("/items/" + itemId);
   return response.data;
 }
