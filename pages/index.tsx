@@ -71,24 +71,26 @@ export default function Home({
         <div>
           <section>
             <Image height={36} alt="to do" src={todo} />
-            {items
-              .filter((item) => !item.isCompleted)
-              .map((item) => (
-                <CheckList
-                  key={item.id}
-                  isChecked={false}
-                  onButtonClick={async (e) => {
-                    e.currentTarget.disabled = true;
-                    try {
-                      await changeIsCompleted(item);
-                    } catch {
-                      e.currentTarget.disabled = false;
-                    }
-                  }}
-                >
-                  {item.name}
-                </CheckList>
-              )) && (
+            {items.filter((item) => !item.isCompleted).length ? (
+              items
+                .filter((item) => !item.isCompleted)
+                .map((item) => (
+                  <CheckList
+                    key={item.id}
+                    isChecked={false}
+                    onButtonClick={async (e) => {
+                      e.currentTarget.disabled = true;
+                      try {
+                        await changeIsCompleted(item);
+                      } catch {
+                        e.currentTarget.disabled = false;
+                      }
+                    }}
+                  >
+                    {item.name}
+                  </CheckList>
+                ))
+            ) : (
               <div className={styles.empty}>
                 <Image height={240} alt="empty to do" src={empty_todo} />
                 할 일이 없어요.
@@ -99,24 +101,26 @@ export default function Home({
           </section>
           <section>
             <Image height={36} alt="done" src={done} />
-            {items
-              .filter((item) => item.isCompleted)
-              .map((item) => (
-                <CheckList
-                  key={item.id}
-                  isChecked={true}
-                  onButtonClick={async (e) => {
-                    e.currentTarget.disabled = true;
-                    try {
-                      await changeIsCompleted(item);
-                    } catch {
-                      e.currentTarget.disabled = false;
-                    }
-                  }}
-                >
-                  {item.name}
-                </CheckList>
-              )) && (
+            {items.filter((item) => item.isCompleted).length ? (
+              items
+                .filter((item) => item.isCompleted)
+                .map((item) => (
+                  <CheckList
+                    key={item.id}
+                    isChecked={true}
+                    onButtonClick={async (e) => {
+                      e.currentTarget.disabled = true;
+                      try {
+                        await changeIsCompleted(item);
+                      } catch {
+                        e.currentTarget.disabled = false;
+                      }
+                    }}
+                  >
+                    {item.name}
+                  </CheckList>
+                ))
+            ) : (
               <div className={styles.empty}>
                 <Image height={240} alt="empty done" src={empty_done} />
                 아직 다 한 일이 없어요.
