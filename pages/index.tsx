@@ -30,16 +30,18 @@ export default function Home({
 }) {
   const [items, setItems] = useState(initialItems);
   const [disabled, setDisabled] = useState(false);
-  const searchRef = useRef<HTMLInputElement>(null);
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (searchRef.current?.value) {
+    const form = e.currentTarget;
+    const name = new FormData(form).get("name")?.toString().trim();
+
+    if (name) {
       try {
         setDisabled(true);
-        const item = await postItem({ name: searchRef.current.value });
+        const item = await postItem({ name });
         setItems((prev) => [...prev, item]);
-        searchRef.current.value = "";
+        form.reset();
       } finally {
         setDisabled(false);
       }
@@ -61,11 +63,7 @@ export default function Home({
       <Gnb />
       <main>
         <form onSubmit={handleSubmit}>
-          <Search
-            className={styles.search}
-            disabled={disabled}
-            ref={searchRef}
-          />
+          <Search name="name" className={styles.search} disabled={disabled} />
           <Btn mode="add" type="submit" disabled={disabled} />
         </form>
         <div>
