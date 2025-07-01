@@ -1,0 +1,20 @@
+button.btn {
+  justify-items: center;
+  align-items: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 9999px;
+}
+
+button.btn.plus {
+  background-color: var(--slate200);
+}
+
+button.btn.edit {
+  border: 2px solid var(--slate900);
+  background-color: rgb(from var(--slate900) r g b / 0.5);
+}
+
+button.btn img {
+  display: block;
+}
