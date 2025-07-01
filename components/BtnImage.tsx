@@ -1,4 +1,5 @@
 import { ButtonHTMLAttributes } from "react";
+import Image from "next/image";
 import ic_plus from "@/assets/icons/plus_big.svg";
 import ic_edit from "@/assets/icons/edit.svg";
 import styles from "./BtnImage.module.css";
@@ -8,5 +9,9 @@ interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 export default function BtnImage({ className = "", mode, ...props }: Props) {
-  return;
+  return (
+    <button className={`${styles.btn} ${className}`} {...props}>
+      <Image alt={mode} src={mode === "plus" ? ic_plus : ic_edit} />
+    </button>
+  );
 }
