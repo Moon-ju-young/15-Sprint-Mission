@@ -1,0 +1,22 @@
+nav.gnb {
+  z-index: 20;
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  border-bottom: 1px solid var(--slate200);
+  background-color: white;
+}
+
+nav.gnb > div {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px 24px 9px;
+  line-height: 0;
+}
+
+nav.gnb > div a {
+  display: inline-block;
+  line-height: 0;
+}

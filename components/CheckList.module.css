@@ -1,0 +1,26 @@
+.check-list {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  height: 50px;
+  padding: 0 12px;
+  border: 2px solid var(--slate900);
+  border-radius: 9999px;
+  color: var(--slate800);
+  line-height: 18px;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.check-list.true {
+  background-color: var(--violet100);
+  text-decoration: line-through 1px;
+}
+
+.check-list.false {
+  background-color: white;
+}
+
+.check-list button {
+  line-height: 0;
+}
