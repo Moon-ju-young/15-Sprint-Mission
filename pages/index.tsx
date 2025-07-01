@@ -66,7 +66,7 @@ export default function Home({
             disabled={disabled}
             ref={searchRef}
           />
-          <Btn mode="add" disabled={disabled} />
+          <Btn mode="add" type="submit" disabled={disabled} />
         </form>
         <div>
           <section>
