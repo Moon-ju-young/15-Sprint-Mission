@@ -10,7 +10,7 @@ interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 export default function BtnImage({ className = "", mode, ...props }: Props) {
   return (
-    <button className={`${styles.btn} ${className}`} {...props}>
+    <button className={`${styles.btn} ${styles[mode]} ${className}`} {...props}>
       <Image alt={mode} src={mode === "plus" ? ic_plus : ic_edit} />
     </button>
   );
