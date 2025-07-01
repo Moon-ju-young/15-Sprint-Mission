@@ -4,14 +4,6 @@ const api = axios.create({
   baseURL: process.env.NEXT_PUBLIC_BASE_URL,
 });
 
-export type SimpleItem = {
-  isCompleted: boolean;
-  name: string;
-  id: number;
-};
-
-export type ResponseSimpleItems = SimpleItem[];
-
 export type ResponseItem = {
   isCompleted: boolean;
   imageUrl: string | null;
@@ -20,6 +12,10 @@ export type ResponseItem = {
   tenantId: string;
   id: number;
 };
+
+export type SimpleItem = Pick<ResponseItem, "id" | "name" | "isCompleted">;
+
+export type ResponseSimpleItems = SimpleItem[];
 
 export type ResponseDelete = {
   message: string;
