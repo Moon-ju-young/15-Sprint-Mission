@@ -8,9 +8,18 @@ interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   mode: "plus" | "edit";
 }
 
-export default function BtnImage({ className = "", mode, ...props }: Props) {
+export default function BtnImage({
+  className = "",
+  type = "button",
+  mode,
+  ...props
+}: Props) {
   return (
-    <button className={`${styles.btn} ${styles[mode]} ${className}`} {...props}>
+    <button
+      className={`${styles.btn} ${styles[mode]} ${className}`}
+      type={type}
+      {...props}
+    >
       <Image alt={mode} src={mode === "plus" ? ic_plus : ic_edit} />
     </button>
   );
