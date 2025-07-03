@@ -38,7 +38,13 @@ export default function CheckListDetail({
       } ${className}`}
       {...props}
     >
-      <button type="button" onClick={onButtonClick}>
+      <button
+        className={styles["check-box"]}
+        type="button"
+        name="isCompleted"
+        value={String(isChecked)}
+        onClick={onButtonClick}
+      >
         <Image alt="checkbox" src={isChecked ? ic_checked : ic_empty} />
       </button>
       <button
@@ -51,6 +57,7 @@ export default function CheckListDetail({
       <input
         className={isEdit ? "" : styles.conceal}
         ref={inputRef}
+        name="name"
         value={value}
         onChange={(e) => setValue(e.currentTarget.value)}
         onBlur={() => setIsEdit(false)}
