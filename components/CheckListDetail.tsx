@@ -24,12 +24,13 @@ export default function CheckListDetail({
   ...props
 }: Props) {
   const [value, setValue] = useState(defaultValue ?? "");
-  const [isEdit, setIsEdit] = useState(false);
+  const spanRef = useRef<HTMLSpanElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    if (isEdit) inputRef.current?.focus();
-  }, [isEdit]);
+    const width = (spanRef.current?.offsetWidth ?? 0) + 1;
+    if (inputRef.current) inputRef.current.style.width = width + "px";
+  }, [value]);
 
   return (
     <div
@@ -39,7 +40,6 @@ export default function CheckListDetail({
       {...props}
     >
       <button
-        className={styles["check-box"]}
         type="button"
         name="isCompleted"
         value={String(isChecked)}
@@ -47,23 +47,12 @@ export default function CheckListDetail({
       >
         <Image alt="checkbox" src={isChecked ? ic_checked : ic_empty} />
       </button>
-      <button
-        className={isEdit ? styles.conceal : ""}
-        type="button"
-        onClick={() => setIsEdit(true)}
-      >
-        {value}
-      </button>
+      <span ref={spanRef}>{value}</span>
       <input
-        className={isEdit ? "" : styles.conceal}
         ref={inputRef}
         name="name"
         value={value}
         onChange={(e) => setValue(e.currentTarget.value)}
-        onBlur={() => setIsEdit(false)}
-        onKeyDown={(e) => {
-          if (e.key === "Enter") setIsEdit(false);
-        }}
       />
     </div>
   );
