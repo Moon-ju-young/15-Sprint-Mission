@@ -6,6 +6,7 @@ import CheckListDetail from "@/components/CheckListDetail";
 import Gnb from "@/components/Gnb";
 import { getItem, postImage, ResponseItem } from "@/lib/api";
 import ic_img from "@/assets/images/img.png";
+import ic_memo from "@/assets/images/memo.png";
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   const item = await getItem(Number(context.params?.itemId));
@@ -43,6 +44,11 @@ export default function Item({ item }: { item: ResponseItem }) {
               <input type="file" accept="image/*" onChange={handleChange} />
             </label>
           </div>
+          <label>
+            Memo
+            <textarea />
+            <Image alt="memo" src={ic_memo} />
+          </label>
         </section>
       </form>
     </div>
