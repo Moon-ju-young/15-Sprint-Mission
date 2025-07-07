@@ -6,7 +6,13 @@ import Btn from "@/components/Btn";
 import BtnImage from "@/components/BtnImage";
 import CheckListDetail from "@/components/CheckListDetail";
 import Gnb from "@/components/Gnb";
-import { getItem, patchItem, postImage, ResponseItem } from "@/lib/api";
+import {
+  deleteItem,
+  getItem,
+  patchItem,
+  postImage,
+  ResponseItem,
+} from "@/lib/api";
 import ic_img from "@/assets/images/img.png";
 import ic_memo from "@/assets/images/memo.png";
 
@@ -51,6 +57,15 @@ export default function Item({
     }
   };
 
+  const handleDeleteClick = async () => {
+    try {
+      await deleteItem(itemId);
+      router.push("/");
+    } catch (error) {
+      alert((error as Error).message);
+    }
+  };
+
   return (
     <div>
       <Gnb />
@@ -75,7 +90,7 @@ export default function Item({
         </section>
         <section>
           <Btn mode="edit" onClick={handleEditClick} />
-          <Btn mode="delete" />
+          <Btn mode="delete" onClick={handleDeleteClick} />
         </section>
       </form>
     </div>
