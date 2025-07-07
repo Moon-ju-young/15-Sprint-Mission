@@ -12,4 +12,17 @@
     padding: 24px 102px;
     background-color: white;
   }
+
+  form section.container {
+    display: grid;
+    grid-template-columns: 32fr 49fr;
+    gap: 24px;
+    height: 311px;
+  }
+
+  form section.btns {
+    display: flex;
+    justify-content: flex-end;
+    gap: 16px;
+  }
 }
