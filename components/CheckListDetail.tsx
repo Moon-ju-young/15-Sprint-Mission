@@ -34,6 +34,7 @@ export default function CheckListDetail({
     >
       <button type="button" onClick={() => setIsChecked((prev) => !prev)}>
         <Image alt="checkbox" src={isChecked ? ic_checked : ic_empty} />
+        <input type="hidden" name="isCompleted" value={String(isChecked)} />
       </button>
       <span ref={spanRef}>{value}</span>
       <input
