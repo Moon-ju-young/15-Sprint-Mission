@@ -68,28 +68,28 @@ export default function Item({
   };
 
   return (
-    <div>
+    <div className={styles.item}>
       <Gnb />
       <form ref={formRef}>
         <CheckListDetail
           defaultValue={item.name}
           defaultIsChecked={item.isCompleted}
         />
-        <section>
-          <div>
+        <section className={styles.container}>
+          <div className={styles.image}>
             <Image alt="image" src={imageUrl ?? ic_img} />
             <label>
               <BtnImage mode={imageUrl ? "edit" : "plus"} />
               <input type="file" accept="image/*" onChange={handleChange} />
             </label>
           </div>
-          <label>
+          <label className={styles.memo}>
             Memo
             <textarea name="memo" defaultValue={item.memo ?? ""} />
             <Image alt="memo" src={ic_memo} />
           </label>
         </section>
-        <section>
+        <section className={styles.btns}>
           <Btn mode="edit" onClick={handleEditClick} />
           <Btn mode="delete" onClick={handleDeleteClick} />
         </section>
