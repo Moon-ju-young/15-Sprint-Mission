@@ -80,7 +80,7 @@ export default function Item({
             {imageUrl ? (
               <img className={styles.full} alt="image" src={imageUrl} />
             ) : (
-              <Image alt="image" src={ic_img} />
+              <Image width={64} alt="image" src={ic_img} />
             )}
             <label>
               <BtnImage mode={imageUrl ? "edit" : "plus"} />
