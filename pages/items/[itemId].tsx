@@ -15,6 +15,7 @@ import {
 } from "@/lib/api";
 import ic_img from "@/assets/images/img.png";
 import ic_memo from "@/assets/images/memo.png";
+import styles from "@/styles/item.module.css";
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   const itemId = Number(context.params?.itemId);
