@@ -75,6 +75,7 @@ export default function Home({
                 .map((item) => (
                   <CheckList
                     key={item.id}
+                    href={`/items/${item.id}`}
                     isChecked={false}
                     onButtonClick={async (e) => {
                       e.currentTarget.disabled = true;
@@ -105,6 +106,7 @@ export default function Home({
                 .map((item) => (
                   <CheckList
                     key={item.id}
+                    href={`/items/${item.id}`}
                     isChecked={true}
                     onButtonClick={async (e) => {
                       e.currentTarget.disabled = true;
