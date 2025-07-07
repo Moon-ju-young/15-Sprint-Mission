@@ -15,7 +15,7 @@ import todo from "@/assets/images/todo.png";
 import done from "@/assets/images/done.png";
 import empty_todo from "@/assets/images/empty_todo.png";
 import empty_done from "@/assets/images/empty_done.png";
-import styles from "@/styles/index.module.css";
+import styles from "@/styles/home.module.css";
 
 export async function getServerSideProps() {
   const items = await getItems();
