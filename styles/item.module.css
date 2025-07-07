@@ -1,0 +1,15 @@
+.item {
+  background-color: var(--gray50);
+}
+
+.item {
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 24px 102px;
+    background-color: white;
+  }
+}
