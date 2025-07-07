@@ -1,29 +1,22 @@
-import {
-  HTMLAttributes,
-  MouseEventHandler,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
+import { HTMLAttributes, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import ic_checked from "@/assets/icons/checkbox_checked.svg";
 import ic_empty from "@/assets/icons//checkbox_empty.svg";
 import styles from "./CheckListDetail.module.css";
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
-  isChecked: boolean;
-  onButtonClick: MouseEventHandler<HTMLButtonElement>;
-  defaultValue?: string;
+  defaultIsChecked: boolean;
+  defaultValue: string;
 }
 
 export default function CheckListDetail({
   className = "",
-  isChecked,
-  onButtonClick,
-  defaultValue,
+  defaultIsChecked = false,
+  defaultValue = "",
   ...props
 }: Props) {
   const [value, setValue] = useState(defaultValue ?? "");
+  const [isChecked, setIsChecked] = useState(defaultIsChecked);
   const spanRef = useRef<HTMLSpanElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -39,12 +32,7 @@ export default function CheckListDetail({
       } ${className}`}
       {...props}
     >
-      <button
-        type="button"
-        name="isCompleted"
-        value={String(isChecked)}
-        onClick={onButtonClick}
-      >
+      <button type="button" onClick={() => setIsChecked((prev) => !prev)}>
         <Image alt="checkbox" src={isChecked ? ic_checked : ic_empty} />
       </button>
       <span ref={spanRef}>{value}</span>
