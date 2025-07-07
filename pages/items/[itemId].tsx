@@ -1,6 +1,7 @@
 import { ChangeEvent, useState } from "react";
 import { GetServerSidePropsContext } from "next";
 import Image from "next/image";
+import Btn from "@/components/Btn";
 import BtnImage from "@/components/BtnImage";
 import CheckListDetail from "@/components/CheckListDetail";
 import Gnb from "@/components/Gnb";
@@ -49,6 +50,10 @@ export default function Item({ item }: { item: ResponseItem }) {
             <textarea />
             <Image alt="memo" src={ic_memo} />
           </label>
+        </section>
+        <section>
+          <Btn mode="edit" />
+          <Btn mode="delete" />
         </section>
       </form>
     </div>
