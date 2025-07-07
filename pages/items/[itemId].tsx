@@ -82,10 +82,13 @@ export default function Item({
             ) : (
               <Image width={64} alt="image" src={ic_img} />
             )}
-            <label>
-              <BtnImage mode={imageUrl ? "edit" : "plus"} />
-              <input type="file" accept="image/*" onChange={handleChange} />
-            </label>
+            <BtnImage htmlFor="file" mode={imageUrl ? "edit" : "plus"} />
+            <input
+              id="file"
+              type="file"
+              accept="image/*"
+              onChange={handleChange}
+            />
           </div>
           <label className={styles.memo}>
             Memo
