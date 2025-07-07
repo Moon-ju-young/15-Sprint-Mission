@@ -132,3 +132,6 @@ button {
   background: none;
   color: initial;
 }
+a {
+  text-decoration: none;
+}
