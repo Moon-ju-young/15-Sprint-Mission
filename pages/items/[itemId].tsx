@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useRef, useState } from "react";
 import { GetServerSidePropsContext } from "next";
 import Image from "next/image";
 import Btn from "@/components/Btn";
@@ -17,6 +17,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
 
 export default function Item({ item }: { item: ResponseItem }) {
   const [imageUrl, setImageUrl] = useState(item.imageUrl);
+  const formRef = useRef<HTMLFormElement>(null);
 
   const handleChange = async (e: ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
@@ -32,7 +33,7 @@ export default function Item({ item }: { item: ResponseItem }) {
   return (
     <div>
       <Gnb />
-      <form>
+      <form ref={formRef}>
         <CheckListDetail
           defaultValue={item.name}
           defaultIsChecked={item.isCompleted}
