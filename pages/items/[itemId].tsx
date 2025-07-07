@@ -1,5 +1,5 @@
-import { useState } from "react";
 import { GetServerSidePropsContext } from "next";
+import CheckListDetail from "@/components/CheckListDetail";
 import Gnb from "@/components/Gnb";
 import { getItem, ResponseItem } from "@/lib/api";
 
@@ -9,12 +9,16 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
   return { props: { item } };
 }
 
-export default function Item({ item: initialItem }: { item: ResponseItem }) {
-  const [item, setItem] = useState(initialItem);
-
+export default function Item({ item }: { item: ResponseItem }) {
   return (
     <div>
       <Gnb />
+      <form>
+        <CheckListDetail
+          defaultValue={item.name}
+          defaultIsChecked={item.isCompleted}
+        />
+      </form>
     </div>
   );
 }
