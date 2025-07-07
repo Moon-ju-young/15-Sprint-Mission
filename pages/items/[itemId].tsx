@@ -84,7 +84,7 @@ export default function Item({
           </div>
           <label>
             Memo
-            <textarea name="memo" />
+            <textarea name="memo" defaultValue={item.memo ?? ""} />
             <Image alt="memo" src={ic_memo} />
           </label>
         </section>
