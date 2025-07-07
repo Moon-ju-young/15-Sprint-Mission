@@ -10,12 +10,19 @@ import ic_img from "@/assets/images/img.png";
 import ic_memo from "@/assets/images/memo.png";
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
-  const item = await getItem(Number(context.params?.itemId));
+  const itemId = Number(context.params?.itemId);
+  const item = await getItem(itemId);
 
-  return { props: { item } };
+  return { props: { item, itemId } };
 }
 
-export default function Item({ item }: { item: ResponseItem }) {
+export default function Item({
+  item,
+  itemId,
+}: {
+  item: ResponseItem;
+  itemId: number;
+}) {
   const [imageUrl, setImageUrl] = useState(item.imageUrl);
   const formRef = useRef<HTMLFormElement>(null);
 
