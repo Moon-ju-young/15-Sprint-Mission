@@ -77,7 +77,11 @@ export default function Item({
         />
         <section className={styles.container}>
           <div className={styles.image}>
-            <Image alt="image" src={imageUrl ?? ic_img} />
+            {imageUrl ? (
+              <img className={styles.full} alt="image" src={imageUrl} />
+            ) : (
+              <Image alt="image" src={ic_img} />
+            )}
             <label>
               <BtnImage mode={imageUrl ? "edit" : "plus"} />
               <input type="file" accept="image/*" onChange={handleChange} />
