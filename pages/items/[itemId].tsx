@@ -1,11 +1,12 @@
 import { ChangeEvent, useRef, useState } from "react";
 import { GetServerSidePropsContext } from "next";
 import Image from "next/image";
+import { useRouter } from "next/router";
 import Btn from "@/components/Btn";
 import BtnImage from "@/components/BtnImage";
 import CheckListDetail from "@/components/CheckListDetail";
 import Gnb from "@/components/Gnb";
-import { getItem, postImage, ResponseItem } from "@/lib/api";
+import { getItem, patchItem, postImage, ResponseItem } from "@/lib/api";
 import ic_img from "@/assets/images/img.png";
 import ic_memo from "@/assets/images/memo.png";
 
@@ -25,6 +26,7 @@ export default function Item({
 }) {
   const [imageUrl, setImageUrl] = useState(item.imageUrl);
   const formRef = useRef<HTMLFormElement>(null);
+  const router = useRouter();
 
   const handleChange = async (e: ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
@@ -34,6 +36,18 @@ export default function Item({
       } catch (error) {
         alert((error as Error).message);
       }
+    }
+  };
+
+  const handleEditClick = async () => {
+    try {
+      const data = Object.fromEntries(
+        new FormData(formRef.current ?? undefined).entries()
+      );
+      await patchItem(itemId, data);
+      router.push("/");
+    } catch (error) {
+      alert((error as Error).message);
     }
   };
 
@@ -55,12 +69,12 @@ export default function Item({
           </div>
           <label>
             Memo
-            <textarea />
+            <textarea name="memo" />
             <Image alt="memo" src={ic_memo} />
           </label>
         </section>
         <section>
-          <Btn mode="edit" />
+          <Btn mode="edit" onClick={handleEditClick} />
           <Btn mode="delete" />
         </section>
       </form>
