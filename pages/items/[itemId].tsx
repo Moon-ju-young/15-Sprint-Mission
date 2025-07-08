@@ -1,4 +1,4 @@
-import { ChangeEvent, useRef, useState } from "react";
+import { ChangeEvent, useEffect, useRef, useState } from "react";
 import { GetServerSidePropsContext } from "next";
 import Image from "next/image";
 import { useRouter } from "next/router";
@@ -35,7 +35,7 @@ export default function Item({
   const formRef = useRef<HTMLFormElement>(null);
   const router = useRouter();
 
-  const handleChange = async (e: ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = async (e: ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
       try {
         const { url } = await postImage(e.target.files[0]);
@@ -44,6 +44,11 @@ export default function Item({
         alert((error as Error).message);
       }
     }
+  };
+
+  const handleTextareaChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
+    e.target.style.height = "auto";
+    e.target.style.height = Math.min(e.target.scrollHeight, 229) + "px";
   };
 
   const handleEditClick = async () => {
@@ -67,6 +72,13 @@ export default function Item({
     }
   };
 
+  useEffect(() => {
+    const area = document.querySelector<HTMLTextAreaElement>(
+      "form label textarea"
+    );
+    if (area) area.style.height = Math.min(area.scrollHeight, 229) + "px";
+  }, []);
+
   return (
     <div className={styles.item}>
       <Gnb />
@@ -87,16 +99,21 @@ export default function Item({
               id="file"
               type="file"
               accept="image/*"
-              onChange={handleChange}
+              onChange={handleInputChange}
             />
           </div>
-          <label className={styles.memo}>
+          <div className={styles.memo}>
             <Image alt="memo" src={ic_memo} fill />
             <div>Memo</div>
             <label>
-              <textarea name="memo" defaultValue={item.memo ?? ""} />
+              <textarea
+                name="memo"
+                defaultValue={item.memo ?? ""}
+                rows={1}
+                onChange={handleTextareaChange}
+              />
             </label>
-          </label>
+          </div>
         </section>
         <section className={styles.btns}>
           <Btn mode="edit" onClick={handleEditClick} />
