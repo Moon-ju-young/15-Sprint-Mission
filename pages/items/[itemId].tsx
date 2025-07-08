@@ -32,6 +32,7 @@ export default function Item({
   itemId: number;
 }) {
   const [imageUrl, setImageUrl] = useState(item.imageUrl);
+  const [disabled, setDisabled] = useState(false);
   const formRef = useRef<HTMLFormElement>(null);
   const router = useRouter();
 
@@ -53,6 +54,7 @@ export default function Item({
 
   const handleEditClick = async () => {
     try {
+      setDisabled(true);
       const data = Object.fromEntries(
         new FormData(formRef.current ?? undefined).entries()
       );
@@ -60,15 +62,18 @@ export default function Item({
       router.push("/");
     } catch (error) {
       alert((error as Error).message);
+      setDisabled(false);
     }
   };
 
   const handleDeleteClick = async () => {
     try {
+      setDisabled(true);
       await deleteItem(itemId);
       router.push("/");
     } catch (error) {
       alert((error as Error).message);
+      setDisabled(false);
     }
   };
 
@@ -99,6 +104,7 @@ export default function Item({
               id="file"
               type="file"
               accept="image/*"
+              disabled={disabled}
               onChange={handleInputChange}
             />
           </div>
@@ -108,6 +114,7 @@ export default function Item({
             <label>
               <textarea
                 name="memo"
+                disabled={disabled}
                 defaultValue={item.memo ?? ""}
                 rows={1}
                 onChange={handleTextareaChange}
@@ -116,8 +123,8 @@ export default function Item({
           </div>
         </section>
         <section className={styles.btns}>
-          <Btn mode="edit" onClick={handleEditClick} />
-          <Btn mode="delete" onClick={handleDeleteClick} />
+          <Btn mode="edit" disabled={disabled} onClick={handleEditClick} />
+          <Btn mode="delete" disabled={disabled} onClick={handleDeleteClick} />
         </section>
       </form>
     </div>
