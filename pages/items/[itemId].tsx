@@ -58,7 +58,7 @@ export default function Item({
       const data = Object.fromEntries(
         new FormData(formRef.current ?? undefined).entries()
       );
-      await patchItem(itemId, data);
+      await patchItem(itemId, { ...data, imageUrl: imageUrl ?? "" });
       router.push("/");
     } catch (error) {
       alert((error as Error).message);
