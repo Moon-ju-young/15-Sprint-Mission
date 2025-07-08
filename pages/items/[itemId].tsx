@@ -91,9 +91,11 @@ export default function Item({
             />
           </div>
           <label className={styles.memo}>
-            Memo
-            <textarea name="memo" defaultValue={item.memo ?? ""} />
-            <Image alt="memo" src={ic_memo} />
+            <Image alt="memo" src={ic_memo} fill />
+            <div>Memo</div>
+            <label>
+              <textarea name="memo" defaultValue={item.memo ?? ""} />
+            </label>
           </label>
         </section>
         <section className={styles.btns}>
