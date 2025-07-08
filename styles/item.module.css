@@ -55,6 +55,69 @@
     display: none;
   }
 
+  form section.container .memo {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 24px 10px;
+    color: var(--amber800);
+    font-weight: 800;
+  }
+
+  form section.container .memo * {
+    z-index: 5;
+    position: relative;
+    font-size: 16px;
+    line-height: 18px;
+    text-align: center;
+  }
+
+  form section.container .memo img {
+    z-index: 0;
+    object-fit: cover;
+    border-radius: 24px;
+  }
+
+  form section.container .memo label {
+    cursor: text;
+    display: flex;
+    align-items: center;
+    min-height: 195px;
+  }
+
+  form section.container .memo label textarea {
+    scrollbar-gutter: stable both-edges;
+    resize: none;
+    outline: none;
+    width: 100%;
+    padding: 0 2px;
+    background-color: transparent;
+    color: var(--slate800);
+  }
+
+  @supports not selector(::-webkit-scrollbar) {
+    form section.container .memo label textarea {
+      scrollbar-width: thin;
+      scrollbar-color: var(--amber200) transparent;
+    }
+  }
+
+  @supports selector(::-webkit-scrollbar) {
+    form section.container .memo label textarea::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    form section.container .memo label textarea::-webkit-scrollbar-thumb {
+      border-radius: 9999px;
+      background-color: var(--amber200);
+    }
+
+    form section.container .memo label textarea::-webkit-scrollbar-button {
+      display: none;
+    }
+  }
+
   form section.btns {
     display: flex;
     justify-content: flex-end;
